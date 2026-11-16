@@ -111,6 +111,8 @@ const EN = {
   'Соберите свой рабочий стол': 'Build your own desktop',
   'Упрощённый макет, но с настоящими темами, обоями и анимациями ArWi. Щёлкайте по бару, логотипу и лупе, таскайте окна, наводите на значки.':
     'A simplified mock-up, but with ArWi’s real themes, wallpapers and animations. Click the bar, the logo and the magnifier, drag windows around, hover over the icons.',
+  'Здесь вы можете примерно посмотреть, какие рабочие столы можно собрать. Это упрощённый макет, и настройки здесь урезаны до основных. Настоящей кастомизации в ArWi намного больше: почти всё, что вы видите здесь (цвета, скругление, все модули, обои), можно выключить, настроить и поменять.':
+    'Here you can get a rough idea of which desktops you can put together. This is a simplified mock-up, and the settings here are cut down to the basics. ArWi’s real customisation goes much further: almost everything you see here (colours, corner rounding, every module, the wallpaper) can be turned off, configured and changed.',
   'На телефоне макет мелкий: приблизьте его пальцами или откройте сайт на компьютере.': 'On a phone the mock-up is small: pinch to zoom or open the site on a computer.',
   'Развернуть окно': 'Maximise window',
   'Вернуть окно': 'Restore window',
