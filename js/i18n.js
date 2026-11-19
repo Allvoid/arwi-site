@@ -326,7 +326,7 @@ const EN = {
   'Выход в Steam': 'Coming to Steam',
   'Когда и где следить': 'When, and where to follow',
   'Почему ArWi платный': 'Why ArWi is paid',
-  'И зачем это нужно': 'And why it has to be',
+  'Зачем и сколько': 'Why, and how much',
   'И почему это не предел': 'And why that is not the limit',
   'Потребление ресурсов': 'Resource use',
   'Память, процессор, обои': 'Memory, CPU, wallpapers',

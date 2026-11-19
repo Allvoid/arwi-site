@@ -971,3 +971,4 @@ html[lang="en"] .lang-ru, html:not([lang="en"]) .lang-en { display: none; }
 .tile:hover .tile-num, .awin.stat:hover b { text-shadow: 0 0 22px rgba(var(--accent-rgb), .45); }
 .tile-bad:hover { border-color: rgba(191, 97, 106, .6); box-shadow: 0 30px 70px rgba(0, 0, 0, .42), 0 0 0 1px rgba(191, 97, 106, .2), 0 0 40px rgba(191, 97, 106, .1); }
 .tile-bad:hover .tile-num { text-shadow: 0 0 22px rgba(191, 97, 106, .5); }
+.tile-grid-3 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
