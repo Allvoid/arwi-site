@@ -84,7 +84,7 @@ const EN = {
   'процессора в простое': 'CPU when idle',
   '(замер на ПК разработчика)': '(measured on the developer’s PC)',
   'постоянных проверок в покое: о новых окнах ArWi узнаёт от самой Windows': 'constant checks when idle: Windows itself tells ArWi about new windows',
-  'Мы проверили веб на себе': 'We tried the web ourselves',
+  'Веб проверен на собственном опыте': 'The web was tried first-hand',
   'Первая версия ArWi рисовала интерфейс встроенным браузером — так делают многие. Он ел память и процессор и тормозил всё вокруг. Поэтому ArWi переписан целиком на собственном нативном ядре: каждое окно, панель и виджет рисуются напрямую видеокартой.':
     'The first version of ArWi drew its interface with a built-in browser — many apps do. It ate memory and CPU and slowed everything around it. So ArWi was rewritten from scratch on its own native core: every window, panel and widget is drawn directly by the graphics card.',
   'Встроенный браузер (WebView)': 'Built-in browser (WebView)',
@@ -225,8 +225,8 @@ const EN = {
 
   // themes section
   '13 встроенных тем — и это верхушка айсберга': '13 built-in themes — and that’s the tip of the iceberg',
-  'Тема в ArWi — это целый образ: палитра, стиль карточек, обои, логотип и форма бара, оформление папок и даже системных меню. Сменили тему — сменился весь стол. Нажмите на любую, чтобы примерить её в конструкторе.':
-    'A theme in ArWi is a whole look: palette, card style, wallpaper, the bar’s logo and shape, folder styling and even system menus. Change the theme and the whole desktop changes. Click any of them to try it in the builder.',
+  'Тема в ArWi — это целый образ: палитра, стиль карточек, обои, логотип и форма бара, оформление папок и даже системных меню. Сменили тему — сменился весь стол. Нажмите на любую, чтобы примерить её в демо.':
+    'A theme in ArWi is a whole look: palette, card style, wallpaper, the bar’s logo and shape, folder styling and even system menus. Change the theme and the whole desktop changes. Click any of them to try it in the demo.',
   'Вживую': 'Live',
   'Это не макет: все 13 тем подряд на настоящем рабочем столе с ArWi. Бар, обои и мини-папки меняются вместе с темой.': 'Not a mock-up: all 13 themes in a row on a real desktop running ArWi. The bar, wallpaper and mini-folders change with the theme.',
   'Настройте под себя': 'Make it yours',
@@ -255,11 +255,89 @@ const EN = {
   // telegram, footer
   'Telegram-канал': 'Telegram channel',
   'Следите за ArWi': 'Follow ArWi',
-  'Новости, ролики и скриншоты новых функций выходят сначала в канале. Там же объявим выход в Steam. Пишите в комментариях, что хотите увидеть в ArWi, — разработчик их читает и часто отвечает.':
-    'News, videos and screenshots of new features appear in the channel first. That is also where we’ll announce the Steam release. Tell us in the comments what you’d like to see in ArWi — the developer reads them and often replies. The channel is in Russian.',
+  'Новости, ролики и скриншоты новых функций выходят сначала в канале. Там же будет объявлен выход в Steam. Пишите в комментариях, что хотите увидеть в ArWi, — разработчик их читает и часто отвечает.':
+    'News, videos and screenshots of new features appear in the channel first. The Steam release will be announced there too. Write in the comments what you’d like to see in ArWi — the developer reads them and often replies. The channel is in Russian.',
   'QR-код канала t.me/ArWiApp': 'QR code of the channel t.me/ArWiApp',
   'Наведите камеру телефона': 'Point your phone camera here',
   'Приложение для кастомизации Windows 10 и 11. Скоро в Steam.': 'An app for customising Windows 10 and 11. Coming to Steam.',
+
+  // pages (19.11): nav, home welcome, demo page, articles page
+  'ArWi — на главную': 'ArWi — home',
+  'Главная': 'Home',
+  'Демо': 'Demo',
+  'Статьи': 'Articles',
+  'В разработке · релиз зимой в Steam': 'In development · coming to Steam this winter',
+  'Привет! Это': 'Hi! This is',
+  'Приложение для кастомизации Windows 10 и 11. Свой бар вместо панели задач, панели виджетов, темы, живые обои и мини-папки. И всё это — почти без нагрузки на компьютер.':
+    'An app for customising Windows 10 and 11. Its own bar instead of the taskbar, widget panels, themes, live wallpapers and mini-folders. All of it with almost no load on your PC.',
+  'Следить в Telegram': 'Follow on Telegram',
+  'С чего начать': 'Where to start',
+  'Добро пожаловать': 'Welcome',
+  'ArWi ещё в разработке': 'ArWi is still in development',
+  'Скачать приложение пока нельзя. Релиз планируется зимой в Steam.': 'You can’t download the app yet. The release is planned for this winter on Steam.',
+  'Чтобы следить за разработкой и первыми узнать о выходе, подпишитесь на Telegram-канал.': 'To follow the development and be the first to hear about the release, join the Telegram channel. The channel is in Russian.',
+  'Перейти в Telegram': 'Open Telegram',
+  'Когда выход в Steam?': 'When is the Steam release?',
+  'Что можно сделать на сайте': 'What you can do on this site',
+  'Попробовать демо': 'Try the demo',
+  'Упрощённая модель ArWi прямо в браузере: мало функций и настроек, но видно, что умеет приложение и как оно выглядит.':
+    'A simplified model of ArWi right in your browser: few features and settings, but you can see what the app can do and how it looks.',
+  'Ничего не скачивается и не устанавливается': 'Nothing is downloaded or installed',
+  'Открыть окно': 'Open the window',
+  'Почитать статьи': 'Read the articles',
+  'Почему ArWi, а не аналоги. Когда выход в Steam и почему он платный. Сколько ресурсов он ест, что можно настроить, на чём он написан и кто его делает.':
+    'Why ArWi and not the alternatives. When it comes to Steam and why it is paid. How many resources it uses, what you can customise, what it is written in and who makes it.',
+  'Ответы на частые вопросы': 'Answers to common questions',
+  'Следить за разработкой': 'Follow the development',
+  'Новости, ролики и скриншоты новых функций выходят сначала в канале. Там же будет объявлен выход в Steam.':
+    'News, videos and screenshots of new features appear in the channel first. The Steam release will be announced there too.',
+  'Открыть канал': 'Open the channel',
+  'МБ': 'MB',
+  'оперативной памяти в среднем без живых обоев.': 'of RAM on average without live wallpapers.',
+  'С живыми обоями — до 200 МБ': 'With live wallpapers — up to 200 MB',
+  'Подробнее о потреблении ресурсов': 'More about resource use',
+  'Приложение для кастомизации Windows 10 и 11. В разработке, релиз зимой в Steam.': 'An app for customising Windows 10 and 11. In development, coming to Steam this winter.',
+
+  'ArWi — демо в браузере': 'ArWi — demo in your browser',
+  'Упрощённая модель ArWi прямо в браузере: темы, бар, виджеты и обои. Ничего не скачивается — ArWi ещё в разработке, релиз зимой в Steam.':
+    'A simplified model of ArWi right in your browser: themes, bar, widgets and wallpapers. Nothing is downloaded — ArWi is still in development, coming to Steam this winter.',
+  'Демо в браузере': 'Demo in your browser',
+  'Упрощённая модель ArWi': 'A simplified model of ArWi',
+  'Примерно понять, что умеет приложение и как оно выглядит. Щёлкайте по бару, логотипу и лупе, таскайте окна, наводите на значки, меняйте тему и бар справа.':
+    'Get a rough idea of what the app can do and how it looks. Click the bar, the logo and the magnifier, drag windows, hover over icons, change the theme and the bar on the right.',
+  'Важно': 'Important',
+  'Здесь ничего не скачивается и не устанавливается.': 'Nothing is downloaded or installed here.',
+  'Это интерактивный макет прямо на странице. Настоящий ArWi — программа для Windows 10 и 11. Она ещё в разработке, релиз планируется зимой в Steam.':
+    'This is an interactive mock-up right on the page. The real ArWi is a program for Windows 10 and 11. It is still in development; the release is planned for this winter on Steam.',
+  'Функций и настроек здесь мало. В самом ArWi почти всё, что вы видите (цвета, скругление, все модули, обои), можно выключить, настроить и поменять.':
+    'There are few features and settings here. In ArWi itself almost everything you see (colours, rounding, every module, wallpapers) can be turned off, tuned and changed.',
+  'Что можно настроить': 'What you can customise',
+  'Поделиться ссылкой': 'Share a link',
+  'Демо сброшено': 'Demo reset',
+  'Ссылка скопирована': 'Link copied',
+  'Ссылка — в адресной строке': 'The link is in the address bar',
+
+  'ArWi — статьи и ответы на вопросы': 'ArWi — articles and answers',
+  'Почему ArWi, а не аналоги. Когда выход в Steam, сколько ресурсов ест ArWi, что в нём можно настроить, какие системы поддерживаются и на чём он написан.':
+    'Why ArWi and not the alternatives. When it comes to Steam, how many resources it uses, what you can customise, which systems are supported and what it is written in.',
+  'Темы статей': 'Article topics',
+  'Почему ArWi, а не аналоги': 'Why ArWi and not the alternatives',
+  'Главное': 'The main one',
+  'Выход в Steam': 'Coming to Steam',
+  'Когда и где следить': 'When, and where to follow',
+  'Почему ArWi платный': 'Why ArWi is paid',
+  'И зачем это нужно': 'And why it has to be',
+  'И почему это не предел': 'And why that is not the limit',
+  'Потребление ресурсов': 'Resource use',
+  'Память, процессор, обои': 'Memory, CPU, wallpapers',
+  'Поддерживаемые системы': 'Supported systems',
+  'Windows 10 и 11': 'Windows 10 and 11',
+  'Стек технологий': 'Technology stack',
+  'C++ и своё ядро': 'C++ and its own core',
+  'Кто мы?': 'Who are we?',
+  'Спойлер: «мы» нет': 'Spoiler: there is no “we”',
+  'Новости — в Telegram': 'News — on Telegram',
+  'Дальше': 'Next',
 
   // page meta
   'ArWi — рабочий стол Windows, собранный под вас': 'ArWi — your Windows desktop, built your way',

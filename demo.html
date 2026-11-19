@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ArWi — демо в браузере</title>
+<meta name="description" content="Упрощённая модель ArWi прямо в браузере: темы, бар, виджеты и обои. Ничего не скачивается — ArWi ещё в разработке, релиз зимой в Steam.">
+<meta property="og:title" content="ArWi — рабочий стол Windows, собранный под вас">
+<meta property="og:description" content="Свой бар, виджеты, 13 тем, живые обои. Нативное ядро без WebView. Соберите свой стол прямо на сайте.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="theme-color" content="#1b1f27">
+<!-- the page is dark by design: keep browsers and dark-mode extensions from inverting the light themes in the builder -->
+<meta name="color-scheme" content="dark">
+<meta name="darkreader-lock">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@200;400;500;700&family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("arwi-lang")!=="ru")document.documentElement.classList.add("i18n-wait")}catch(e){document.documentElement.classList.add("i18n-wait")}setTimeout(function(){document.documentElement.classList.remove("i18n-wait")},2500)</script>
+<link rel="stylesheet" href="css/style.css?v=11">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="index.html" aria-label="ArWi — на главную"><span class="logo-mark"></span><span>ArWi</span></a>
+  <nav class="nav-links">
+    <a href="index.html">Главная</a>
+    <a href="demo.html" aria-current="page">Демо</a>
+    <a href="articles.html">Статьи</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language / Язык"><span class="lang-ink"></span><button type="button" data-lang="en">EN</button><button type="button" data-lang="ru">RU</button></div>
+  <a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Telegram</a>
+</header>
+
+<main id="top">
+
+<!-- ============ BUILDER ============ -->
+<section class="section builder-section demo-page" id="build">
+  <div class="wrap wrap-wide">
+    <div class="demo-head">
+      <div class="demo-title">
+        <p class="kicker">Демо в браузере</p>
+        <h1>Упрощённая модель ArWi</h1>
+        <p class="sub">Примерно понять, что умеет приложение и как оно выглядит. Щёлкайте по бару, логотипу и лупе, таскайте окна, наводите на значки, меняйте тему и бар справа.</p>
+      </div>
+      <div class="awin awin-notice">
+        <div class="awin-head"><span class="logo-mark"></span><span class="awin-title">Важно</span><i></i><i></i><i></i></div>
+        <div class="awin-body">
+          <p class="notice-big">Здесь ничего не скачивается и не устанавливается.</p>
+          <p>Это интерактивный макет прямо на странице. Настоящий ArWi — программа для Windows 10 и 11. Она ещё в разработке, релиз планируется зимой в Steam.</p>
+          <p>Функций и настроек здесь мало. В самом ArWi почти всё, что вы видите (цвета, скругление, все модули, обои), можно выключить, настроить и поменять.</p>
+          <div class="hero-cta">
+            <a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Следить в Telegram</a>
+            <a class="btn btn-ghost btn-sm" href="articles.html#custom">Что можно настроить</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="builder">
+      <div class="stage-col">
+        <div class="stage-frame">
+          <div class="stage-wrap" id="stageWrap">
+            <div class="stage" id="stage">
+              <div class="wall"><div class="wall-layer" id="wallA"></div><div class="wall-layer" id="wallB"></div><video class="wall-video" id="wallVideo" muted loop playsinline preload="none"></video></div>
+
+              <div class="bigclock" id="bigClock">
+                <div class="bc-day" id="bcDay">суббота</div>
+                <div class="bc-time"><span id="bcH">12</span><span class="bc-colon">:</span><span id="bcM">00</span></div>
+                <div class="bc-date" id="bcDate">14 ноября 2026</div>
+              </div>
+
+              <div class="minifolders" id="miniFolders"></div>
+              <div class="mf-open" id="mfOpen"></div>
+
+              <div class="wpanel" id="wPanel">
+                <div class="wp-inner" id="wpInner"></div>
+                <button class="wp-arrow" id="wpArrow" aria-label="Свернуть панель"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+              </div>
+
+              <div class="windows" id="windows"></div>
+
+              <div class="bar" id="bar">
+                <div class="bar-body" id="barBody"></div>
+              </div>
+
+              <div class="popup pop-win" id="popWin"></div>
+              <div class="popup pop-search" id="popSearch"></div>
+              <div class="popup pop-desk" id="popDesk"></div>
+              <div class="popup pop-preview" id="popPreview"></div>
+              <div class="stage-toast" id="stageToast"></div>
+            </div>
+          </div>
+        </div>
+        <p class="stage-hint">На телефоне макет мелкий: приблизьте его пальцами или откройте сайт на компьютере.</p>
+        <div class="stage-actions">
+          <button class="btn btn-ghost btn-sm" id="btnMax">Развернуть окно</button>
+          <button class="btn btn-ghost btn-sm" id="btnRandom">Случайный стол</button>
+          <button class="btn btn-ghost btn-sm" id="btnReset">Сбросить</button>
+          <button class="btn btn-accent btn-sm" id="btnShare">Поделиться ссылкой</button>
+        </div>
+      </div>
+
+      <aside class="controls" id="controls">
+        <div class="tabs" role="tablist" id="tabs">
+          <button class="tab on" data-tab="theme">Тема</button>
+          <button class="tab" data-tab="bar">Бар</button>
+          <button class="tab" data-tab="widgets">Виджеты</button>
+          <button class="tab" data-tab="wall">Обои</button>
+          <button class="tab" data-tab="more">Ещё</button>
+          <span class="tab-ink" id="tabInk"></span>
+        </div>
+        <div class="tab-pages" id="tabPages">
+          <div class="page on" data-page="theme"></div>
+          <div class="page" data-page="bar"></div>
+          <div class="page" data-page="widgets"></div>
+          <div class="page" data-page="wall"></div>
+          <div class="page" data-page="more"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <a class="brand" href="index.html"><span class="logo-mark"></span><span>ArWi</span></a>
+    <p>Приложение для кастомизации Windows 10 и 11. В разработке, релиз зимой в Steam.</p>
+    <nav class="foot-links"><a href="demo.html">Демо</a><a href="articles.html">Статьи</a></nav>
+    <a href="https://t.me/ArWiApp" target="_blank" rel="noopener">t.me/ArWiApp</a>
+  </div>
+</footer>
+
+<script src="js/themes.js?v=11"></script>
+<script src="js/i18n.js?v=11"></script>
+<script src="js/site.js?v=11"></script>
+<script src="js/app.js?v=11"></script>
+</body>
+</html>

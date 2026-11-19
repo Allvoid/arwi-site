@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ArWi — статьи и ответы на вопросы</title>
+<meta name="description" content="Почему ArWi, а не аналоги. Когда выход в Steam, сколько ресурсов ест ArWi, что в нём можно настроить, какие системы поддерживаются и на чём он написан.">
+<meta property="og:title" content="ArWi — статьи и ответы на вопросы">
+<meta property="og:description" content="Почему ArWi, а не аналоги, выход в Steam, ресурсы, кастомизация, стек технологий.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="theme-color" content="#1b1f27">
+<meta name="color-scheme" content="dark">
+<meta name="darkreader-lock">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@200;400;500;700&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("arwi-lang")!=="ru")document.documentElement.classList.add("i18n-wait")}catch(e){document.documentElement.classList.add("i18n-wait")}setTimeout(function(){document.documentElement.classList.remove("i18n-wait")},2500)</script>
+<link rel="stylesheet" href="css/style.css?v=11">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="index.html" aria-label="ArWi — на главную"><span class="logo-mark"></span><span>ArWi</span></a>
+  <nav class="nav-links">
+    <a href="index.html">Главная</a>
+    <a href="demo.html">Демо</a>
+    <a href="articles.html" aria-current="page">Статьи</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language / Язык"><span class="lang-ink"></span><button type="button" data-lang="en">EN</button><button type="button" data-lang="ru">RU</button></div>
+  <a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Telegram</a>
+</header>
+
+<main id="top" class="art-page">
+<div class="wrap wrap-wide art-layout">
+
+  <!-- ============ topics on the left ============ -->
+  <aside class="art-side">
+    <p class="kicker">Статьи</p>
+    <nav class="art-toc" id="artToc" aria-label="Темы статей">
+      <span class="toc-ink" id="tocInk"></span>
+      <a href="#why" data-art="why">
+        <span class="toc-ico"><svg viewBox="0 0 24 24"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6-4.5-4.2 6.1-.7Z"/></svg></span>
+        <span class="toc-txt"><b>Почему ArWi, а не аналоги</b><small>Главное</small></span>
+      </a>
+      <a href="#steam" data-art="steam">
+        <span class="toc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+        <span class="toc-txt"><b>Выход в Steam</b><small>Когда и где следить</small></span>
+      </a>
+      <a href="#paid" data-art="paid">
+        <span class="toc-ico"><svg viewBox="0 0 24 24"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M3 9l2-5h14l2 5M10 13h4"/></svg></span>
+        <span class="toc-txt"><b>Почему ArWi платный</b><small>И зачем это нужно</small></span>
+      </a>
+      <a href="#custom" data-art="custom">
+        <span class="toc-ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.6-.8 1.6-1.6 0-.5-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.6 1.6-1.6H16a5 5 0 0 0 5-5C21 6.6 17 3 12 3Z"/><circle cx="7.5" cy="11" r="1.3"/><circle cx="10" cy="7.3" r="1.3"/><circle cx="14.5" cy="7.3" r="1.3"/></svg></span>
+        <span class="toc-txt"><b>Что можно настроить</b><small>И почему это не предел</small></span>
+      </a>
+      <a href="#resources" data-art="resources">
+        <span class="toc-ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>
+        <span class="toc-txt"><b>Потребление ресурсов</b><small>Память, процессор, обои</small></span>
+      </a>
+      <a href="#platforms" data-art="platforms">
+        <span class="toc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        <span class="toc-txt"><b>Поддерживаемые системы</b><small>Windows 10 и 11</small></span>
+      </a>
+      <a href="#stack" data-art="stack">
+        <span class="toc-ico"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+        <span class="toc-txt"><b>Стек технологий</b><small>C++ и своё ядро</small></span>
+      </a>
+      <a href="#who" data-art="who">
+        <span class="toc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+        <span class="toc-txt"><b>Кто мы?</b><small>Спойлер: «мы» нет</small></span>
+      </a>
+    </nav>
+    <a class="side-tg" href="https://t.me/ArWiApp" target="_blank" rel="noopener">
+      <svg class="tg-ico" viewBox="0 0 24 24"><path d="M21.5 4.2 2.9 11.4c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.5-1.4Zm-3.4 3.4-8.6 7.8-.3 3.4-1.6-5 9.9-6.3c.5-.3.9 0 .6.1Z"/></svg>
+      <span><b>Новости — в Telegram</b><small>t.me/ArWiApp</small></span>
+    </a>
+  </aside>
+
+  <!-- ============ the article window ============ -->
+  <div class="awin art-win">
+    <div class="awin-head"><span class="logo-mark"></span><span class="awin-title" id="artTitle">Статьи</span><i></i><i></i><i></i></div>
+    <div class="art-body" id="artBody">
+
+<!-- ===== why ===== -->
+<article class="art" data-art="why">
+<div class="lang-ru">
+  <p class="kicker">Главное</p>
+  <h1>Почему ArWi, а не аналоги</h1>
+  <p class="art-lead">Программ для украшения Windows много. Зачем ещё одна — и почему ArWi делается так долго.</p>
+
+  <h2>Какие есть аналоги</h2>
+  <p>Хорошие программы для оформления Windows уже есть, и многие из них проверены годами. Вот самые известные:</p>
+  <ul class="analogs">
+    <li><b>Windhawk</b> — моды для панели задач, меню «Пуск» и Проводника. Меняет то, что уже есть в Windows.</li>
+    <li><b>Rainmeter</b> — скины и виджеты на рабочем столе.</li>
+    <li><b>Wallpaper Engine</b> и <b>Lively Wallpaper</b> — живые обои.</li>
+    <li><b>Seelen UI</b> и <b>YASB</b> — свои панели в духе оболочек Linux.</li>
+    <li><b>StartAllBack</b>, <b>ExplorerPatcher</b>, <b>Start11</b> — меню «Пуск» и панель задач «как раньше».</li>
+    <li><b>TranslucentTB</b> и <b>RoundedTB</b> — прозрачная и скруглённая панель задач.</li>
+    <li><b>Fences</b> — группы ярлыков на рабочем столе.</li>
+    <li><b>Nexus Dock</b> — док в стиле macOS.</li>
+  </ul>
+  <p>Почти каждая из них меняет одну часть Windows. Чтобы получить свой бар, виджеты, живые обои, папки на столе и единый стиль, обычно ставят сразу три-пять программ. У каждой свой процесс, свои настройки и свой вид, и друг о друге они не знают.</p>
+
+  <h2>Чем отличается ArWi</h2>
+  <div class="art-points">
+    <div class="art-point"><b>Всё в одном</b><p>Бар, панели виджетов, поиск, мини-папки, живые обои, окна с магнитом и перекраска системных меню — это модули одного приложения. Одна тема меняет сразу весь стол.</p></div>
+    <div class="art-point"><b>Собственное ядро на C++</b><p>ArWi — не надстройка над браузером и не набор скриптов. Интерфейс рисует своё ядро, написанное на C++, напрямую через видеокарту.</p></div>
+    <div class="art-point"><b>Ресурсы — главный приоритет</b><p>Каждая новая возможность делается так, чтобы почти не добавлять нагрузки. Приложение работает всегда, поэтому не имеет права мешать играм и работе.</p></div>
+  </div>
+
+  <div class="art-figure">
+    <div class="fig-num"><b>50–80</b><span>МБ памяти в среднем<br>без живых обоев</span></div>
+    <div class="fig-num"><b>до 200</b><span>МБ с живыми обоями — зависит<br>от их настроек и качества</span></div>
+  </div>
+
+  <h2>Почему разработка идёт долго</h2>
+  <p>ArWi в разработке уже больше 6 месяцев. Разработчик ставит в приоритет сразу две вещи: возможность глубокой кастомизации и оптимизацию потребления ресурсов. Совместить их непросто: красивые анимации, живые обои и десятки настроек обычно стоят памяти и процессора, а здесь каждую из них приходится делать так, чтобы она почти ничего не стоила.</p>
+  <p>Именно поэтому разработка идёт долго. И именно поэтому аналоги не дают такой же производительности при сопоставимом наборе возможностей.</p>
+  <p class="art-aside">Это не значит, что аналоги плохие. Они просто решают другую задачу: меняют одну часть Windows. ArWi собирает весь рабочий стол в одном лёгком приложении.</p>
+</div>
+<div class="lang-en">
+  <p class="kicker">The main one</p>
+  <h1>Why ArWi and not its alternatives</h1>
+  <p class="art-lead">There are plenty of programs that make Windows look nicer. Why one more — and why ArWi takes so long to make.</p>
+
+  <h2>What the alternatives are</h2>
+  <p>Good tools for styling Windows already exist, and many of them have been around for years. The best known ones:</p>
+  <ul class="analogs">
+    <li><b>Windhawk</b> — mods for the taskbar, the Start menu and File Explorer. It changes what Windows already has.</li>
+    <li><b>Rainmeter</b> — skins and widgets on the desktop.</li>
+    <li><b>Wallpaper Engine</b> and <b>Lively Wallpaper</b> — live wallpapers.</li>
+    <li><b>Seelen UI</b> and <b>YASB</b> — custom bars in the spirit of Linux desktops.</li>
+    <li><b>StartAllBack</b>, <b>ExplorerPatcher</b>, <b>Start11</b> — the Start menu and taskbar “like they used to be”.</li>
+    <li><b>TranslucentTB</b> and <b>RoundedTB</b> — a transparent, rounded taskbar.</li>
+    <li><b>Fences</b> — groups of shortcuts on the desktop.</li>
+    <li><b>Nexus Dock</b> — a macOS-style dock.</li>
+  </ul>
+  <p>Almost each of them changes one part of Windows. To get your own bar, widgets, live wallpapers, desktop folders and one consistent style, people usually install three to five programs at once. Each has its own process, its own settings and its own look, and none of them knows about the others.</p>
+
+  <h2>What makes ArWi different</h2>
+  <div class="art-points">
+    <div class="art-point"><b>All in one</b><p>The bar, widget panels, search, mini-folders, live wallpapers, windows with a magnet and recoloured system menus are modules of one app. One theme changes the whole desktop at once.</p></div>
+    <div class="art-point"><b>Its own C++ core</b><p>ArWi is not a layer on top of a browser and not a pile of scripts. The interface is drawn by its own core, written in C++, straight through the graphics card.</p></div>
+    <div class="art-point"><b>Resources come first</b><p>Every new feature is built so that it adds almost no load. The app is always running, so it has no right to get in the way of your games and work.</p></div>
+  </div>
+
+  <div class="art-figure">
+    <div class="fig-num"><b>50–80</b><span>MB of RAM on average<br>without live wallpapers</span></div>
+    <div class="fig-num"><b>up to 200</b><span>MB with live wallpapers — depends<br>on their settings and quality</span></div>
+  </div>
+
+  <h2>Why development takes long</h2>
+  <p>ArWi has been in development for more than 6 months. The developer puts two things first at the same time: deep customisation and low resource use. They are hard to combine: nice animations, live wallpapers and dozens of settings usually cost memory and CPU, and here every one of them has to be made so that it costs almost nothing.</p>
+  <p>That is exactly why development takes long. And that is exactly why the alternatives don’t give the same performance with a comparable set of features.</p>
+  <p class="art-aside">This doesn’t mean the alternatives are bad. They simply solve a different task: they change one part of Windows. ArWi brings the whole desktop together in one light app.</p>
+</div>
+</article>
+
+<!-- ===== steam ===== -->
+<article class="art" data-art="steam">
+<div class="lang-ru">
+  <p class="kicker">Релиз</p>
+  <h1>Выход в Steam</h1>
+  <p class="art-lead">ArWi выйдет в Steam. Релиз планируется зимой.</p>
+
+  <h2>Когда именно?</h2>
+  <p>Точной даты пока нет. Разработчик старается выйти в Steam как можно раньше — буквально «чем раньше, тем лучше». Поэтому дату не держат про запас: ArWi выйдет, как только это станет возможно.</p>
+
+  <h2>Почему задержка?</h2>
+  <p>Есть некоторые юридические тонкости. Подробности разработчик озвучить не может: это личная информация. Пока эта задержка не зависит даже от самого разработчика, и остаётся только подождать.</p>
+
+  <h2>Где узнать о выходе первым?</h2>
+  <p>Любая информация о релизе всегда появляется в Telegram-канале ArWi. Там же — новости, ролики и скриншоты новых функций.</p>
+  <div class="hero-cta"><a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Перейти в t.me/ArWiApp</a></div>
+
+  <h2>А скачать сейчас можно?</h2>
+  <p>Нет. Этот сайт — не страница загрузки. Демо на сайте — это упрощённая модель ArWi прямо в браузере, а не установщик: оно ничего не скачивает и ничего не ставит на компьютер.</p>
+</div>
+<div class="lang-en">
+  <p class="kicker">Release</p>
+  <h1>Coming to Steam</h1>
+  <p class="art-lead">ArWi will come out on Steam. The release is planned for winter.</p>
+
+  <h2>When exactly?</h2>
+  <p>There is no exact date yet. The developer is trying to get onto Steam as early as possible — literally “the sooner, the better”. So no date is being held back: ArWi will come out as soon as it becomes possible.</p>
+
+  <h2>Why the delay?</h2>
+  <p>There are some legal details. The developer can’t share them: it is personal information. For now this delay doesn’t even depend on the developer, so all that is left is to wait.</p>
+
+  <h2>Where do I hear about the release first?</h2>
+  <p>Any news about the release always appears in the ArWi Telegram channel first. News, videos and screenshots of new features are there too.</p>
+  <div class="hero-cta"><a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Open t.me/ArWiApp</a></div>
+
+  <h2>Can I download it now?</h2>
+  <p>No. This site is not a download page. The demo on the site is a simplified model of ArWi right in your browser, not an installer: it downloads nothing and installs nothing on your computer.</p>
+</div>
+</article>
+
+<!-- ===== paid ===== -->
+<article class="art" data-art="paid">
+<div class="lang-ru">
+  <p class="kicker">Цена</p>
+  <h1>Почему ArWi платный</h1>
+  <p class="art-lead">Коротко: чтобы ArWi мог развиваться годами, а не забросился через полгода.</p>
+
+  <h2>Это основной проект разработчика</h2>
+  <p>ArWi в разработке уже больше 6 месяцев. Проектов у разработчика много, и не обо всех он рассказывает, но ArWi — основной.</p>
+
+  <h2>Поддержка — на всю жизнь</h2>
+  <p>Поддерживать ArWi разработчик планирует всю свою жизнь — если у него будут ресурсы на жизнь. Поэтому проект не может быть бесплатным: покупка в Steam и есть то, что позволяет работе продолжаться.</p>
+
+  <h2>Приложение меняется каждый день</h2>
+  <p>ArWi постоянно растёт. Каждый день он получает что-то новое:</p>
+  <div class="solo-card">
+    <div class="art-cell"><b>Новые функции</b><p>Модули, виджеты и возможности, которых раньше не было.</p></div>
+    <div class="art-cell"><b>Оптимизацию</b><p>Меньше памяти, меньше процессора, быстрее отклик.</p></div>
+    <div class="art-cell"><b>Кастомизацию</b><p>Новые настройки, темы и способы перестроить стол под себя.</p></div>
+  </div>
+  <p>Поэтому — да, ArWi платный.</p>
+</div>
+<div class="lang-en">
+  <p class="kicker">Price</p>
+  <h1>Why ArWi is paid</h1>
+  <p class="art-lead">In short: so that ArWi can keep growing for years instead of being abandoned in six months.</p>
+
+  <h2>It is the developer’s main project</h2>
+  <p>ArWi has been in development for more than 6 months. The developer has many projects, and not all of them are announced, but ArWi is the main one.</p>
+
+  <h2>Support for a lifetime</h2>
+  <p>The developer plans to support ArWi for the rest of his life — as long as he has the means to live. That is why the project can’t be free: buying it on Steam is exactly what keeps the work going.</p>
+
+  <h2>The app changes every day</h2>
+  <p>ArWi keeps growing. Every day it gets something new:</p>
+  <div class="solo-card">
+    <div class="art-cell"><b>New features</b><p>Modules, widgets and abilities that weren’t there before.</p></div>
+    <div class="art-cell"><b>Optimisation</b><p>Less memory, less CPU, faster response.</p></div>
+    <div class="art-cell"><b>Customisation</b><p>New settings, themes and ways to rebuild the desktop your way.</p></div>
+  </div>
+  <p>So — yes, ArWi is paid.</p>
+</div>
+</article>
+
+<!-- ===== custom ===== -->
+<article class="art" data-art="custom">
+<div class="lang-ru">
+  <p class="kicker">Кастомизация</p>
+  <h1>Что можно настроить</h1>
+  <p class="art-lead">Почти всё, что вы видите на столе с ArWi, можно выключить, настроить и поменять.</p>
+
+  <div class="art-grid">
+    <div class="art-cell"><b>Бар</b><p>Шесть видов: ArWi, Windows 11, Windows 10, Waybar, Dock и с подписями. Любой край экрана, длина, толщина, скругление, прозрачность, цвет или градиент до 8 цветов. Волна значков под курсором, поведение под развёрнутым окном, анимации.</p></div>
+    <div class="art-cell"><b>Темы</b><p>Больше десятка встроенных тем. Тема — это целый образ: палитра, карточки, обои, логотип, форма бара, оформление папок и системных меню. Любую можно скопировать в свою и крутить дальше.</p></div>
+    <div class="art-cell"><b>Панели виджетов</b><p>Погода, заметки, плеер, календарь, помодоро, монитор ресурсов, валюты, GitHub, Discord, чек-лист, быстрые вставки текста. Любой край, свои правила скрытия.</p></div>
+    <div class="art-cell"><b>Обои</b><p>Статичные и живые обои у каждой темы, свои картинки и видео, ограничение частоты кадров, пауза под игрой.</p></div>
+    <div class="art-cell"><b>Мини-папки</b><p>Компактные папки с ярлыками на столе: круг, капсула, шестиугольник, срезанные углы и своё оформление под тему.</p></div>
+    <div class="art-cell"><b>Окна</b><p>Магнит к краям и друг к другу, инерция, цветная скруглённая рамка под цвет темы.</p></div>
+    <div class="art-cell"><b>Поиск и Win-панель</b><p>Пять стилей. Поиск понимает неправильную раскладку: «ашкуащч» найдёт Firefox.</p></div>
+    <div class="art-cell"><b>Детали</b><p>Шрифт, тени, рамки, вид заголовков и кнопок, миксер тем, темы, которые сами меняются к ночи или в дождь, и файл темы <code>.arwitheme</code>, чтобы поделиться ею.</p></div>
+  </div>
+
+  <h2>ArWi — это в первую очередь ядро</h2>
+  <p>Даже если чего-то в ArWi пока нет, это не предел. ArWi — в первую очередь ядро, которое умеет рисовать что угодно и как угодно, потребляя мало ресурсов. Бар, виджеты и папки — это то, что на нём уже построено.</p>
+  <p>Поэтому приложение будет развиваться и получать множество самых разных функций. А в итоге ядро позволит пользователям создавать не только свои темы, но и полностью свой функционал. И он будет потреблять всё так же мало ресурсов компьютера.</p>
+  <div class="hero-cta"><a class="btn btn-ghost btn-sm" href="demo.html">Попробовать демо</a></div>
+</div>
+<div class="lang-en">
+  <p class="kicker">Customisation</p>
+  <h1>What you can customise</h1>
+  <p class="art-lead">Almost everything you see on a desktop with ArWi can be turned off, tuned and changed.</p>
+
+  <div class="art-grid">
+    <div class="art-cell"><b>Bar</b><p>Six looks: ArWi, Windows 11, Windows 10, Waybar, Dock and labelled. Any screen edge, length, thickness, rounding, transparency, a colour or a gradient of up to 8 colours. An icon wave under the cursor, behaviour under a maximised window, animations.</p></div>
+    <div class="art-cell"><b>Themes</b><p>More than ten built-in themes. A theme is a whole look: palette, cards, wallpaper, logo, bar shape, folder style and system menus. Any theme can be copied into your own and tuned further.</p></div>
+    <div class="art-cell"><b>Widget panels</b><p>Weather, notes, media player, calendar, pomodoro, resource monitor, currencies, GitHub, Discord, a checklist, quick text snippets. Any edge, your own hiding rules.</p></div>
+    <div class="art-cell"><b>Wallpapers</b><p>Static and live wallpapers for every theme, your own pictures and videos, a frame-rate limit, a pause under games.</p></div>
+    <div class="art-cell"><b>Mini-folders</b><p>Compact folders with shortcuts on the desktop: round, capsule, hexagon, cut corners and a style for each theme.</p></div>
+    <div class="art-cell"><b>Windows</b><p>A magnet to edges and to each other, inertia, a rounded coloured border in the theme colour.</p></div>
+    <div class="art-cell"><b>Search and Win panel</b><p>Five styles. Search understands the wrong keyboard layout: typing Firefox in the Russian layout still finds it.</p></div>
+    <div class="art-cell"><b>Details</b><p>Font, shadows, borders, the look of headers and buttons, a theme mixer, themes that change by themselves at night or in the rain, and a <code>.arwitheme</code> file to share a theme.</p></div>
+  </div>
+
+  <h2>ArWi is a core first of all</h2>
+  <p>Even if something is missing in ArWi today, that is not the limit. ArWi is first of all a core that can draw anything in any way while using few resources. The bar, widgets and folders are what has been built on it so far.</p>
+  <p>So the app will keep growing and gain many very different features. In the end the core will let users create not only their own themes but entirely their own functionality. And it will still use just as few of your computer’s resources.</p>
+  <div class="hero-cta"><a class="btn btn-ghost btn-sm" href="demo.html">Try the demo</a></div>
+</div>
+</article>
+
+<!-- ===== resources ===== -->
+<article class="art" data-art="resources">
+<div class="lang-ru">
+  <p class="kicker">Оптимизация</p>
+  <h1>Потребление ресурсов</h1>
+  <p class="art-lead">Одна из главных задач разработчика — дать вам приложение, которое за меньшее количество ресурсов, чем любые аналоги, даст ту кастомизацию, которую вы хотите.</p>
+
+  <h2>Сколько сейчас</h2>
+  <div class="mem-meter" aria-hidden="true">
+    <div class="mm-track"><i class="mm-base"></i><i class="mm-live"></i></div>
+    <div class="mm-scale"><span>0</span><span>50</span><span>80</span><span>200 МБ</span></div>
+  </div>
+  <ul class="art-list">
+    <li><b>50–80 МБ</b> оперативной памяти в среднем без живых обоев.</li>
+    <li><b>До 200 МБ</b> с живыми обоями. Сколько именно — зависит от настроек обоев: их разрешения, качества и частоты кадров.</li>
+    <li><b>Около 0,1 %</b> процессора в простое.</li>
+  </ul>
+  <p class="art-aside">Цифры сняты на ПК разработчика при обычной работе. На вашем компьютере они могут немного отличаться: это зависит от настроек, числа виджетов и мониторов.</p>
+
+  <h2>За счёт чего</h2>
+  <ul class="art-list">
+    <li><b>Нет браузера внутри.</b> Интерфейс рисует своё ядро на C++ напрямую через видеокарту, без WebView и Electron.</li>
+    <li><b>Спит, когда его не видно.</b> Под игрой или развёрнутым окном панели засыпают, видео-обои встают на паузу. Погас экран или заблокирован компьютер — останавливаются и фоновые обновления.</li>
+    <li><b>События вместо опросов.</b> Открыли окно, переключили стол, поставили программу — Windows сама сообщает об этом ArWi. Никаких таймеров «раз в секунду».</li>
+    <li><b>Видео декодирует видеокарта.</b> Частоту кадров обоев можно ограничить, а на батарее она снижается сама.</li>
+    <li><b>Фоновый режим Windows.</b> Процессы ArWi помечены как фоновые и работают на экономичных ядрах процессора.</li>
+    <li><b>Не лезет в игры.</b> В игры, античиты и программы из Store модули ArWi не загружаются вовсе.</li>
+    <li><b>Экономия по пунктам.</b> Заморозить анимации, реже обновлять виджеты, отключить фоновые превью — выбираете сами, чем пожертвовать.</li>
+  </ul>
+</div>
+<div class="lang-en">
+  <p class="kicker">Optimisation</p>
+  <h1>Resource use</h1>
+  <p class="art-lead">One of the developer’s main goals is to give you an app that delivers the customisation you want for fewer resources than any alternative.</p>
+
+  <h2>How much right now</h2>
+  <div class="mem-meter" aria-hidden="true">
+    <div class="mm-track"><i class="mm-base"></i><i class="mm-live"></i></div>
+    <div class="mm-scale"><span>0</span><span>50</span><span>80</span><span>200 MB</span></div>
+  </div>
+  <ul class="art-list">
+    <li><b>50–80 MB</b> of RAM on average without live wallpapers.</li>
+    <li><b>Up to 200 MB</b> with live wallpapers. How much exactly depends on the wallpaper settings: resolution, quality and frame rate.</li>
+    <li><b>About 0.1 %</b> CPU when idle.</li>
+  </ul>
+  <p class="art-aside">The figures come from the developer’s PC in normal use. On your computer they may differ a little: it depends on the settings and on the number of widgets and monitors.</p>
+
+  <h2>How it gets there</h2>
+  <ul class="art-list">
+    <li><b>No browser inside.</b> The interface is drawn by its own C++ core straight through the graphics card, with no WebView or Electron.</li>
+    <li><b>It sleeps when you can’t see it.</b> Under a game or a maximised window the panels fall asleep and video wallpapers pause. When the screen goes off or the PC is locked, background updates stop too.</li>
+    <li><b>Events instead of polling.</b> You open a window, switch desktops or install a program — Windows tells ArWi itself. No “once a second” timers.</li>
+    <li><b>The graphics card decodes the video.</b> You can cap the wallpaper frame rate, and on battery it drops by itself.</li>
+    <li><b>Windows background mode.</b> ArWi processes are marked as background work and run on the CPU’s efficiency cores.</li>
+    <li><b>Stays out of games.</b> ArWi modules are never loaded into games, anti-cheats or Store apps.</li>
+    <li><b>Power saving item by item.</b> Freeze animations, update widgets less often, turn off background previews — you choose what to give up.</li>
+  </ul>
+</div>
+</article>
+
+<!-- ===== platforms ===== -->
+<article class="art" data-art="platforms">
+<div class="lang-ru">
+  <p class="kicker">Системы</p>
+  <h1>Поддерживаемые системы</h1>
+  <p class="art-lead">ArWi работает в Windows 10 и Windows 11.</p>
+  <div class="os-row">
+    <div class="os-card on"><b>Windows 11</b><span>Поддерживается</span></div>
+    <div class="os-card on"><b>Windows 10</b><span>Поддерживается</span></div>
+    <div class="os-card"><b>macOS, Linux, телефоны</b><span>Нет</span></div>
+  </div>
+  <p>ArWi глубоко встроен в рабочий стол Windows: заменяет панель задач своим баром, знает о виртуальных столах и окнах, перекрашивает системные меню. Поэтому другие системы он не поддерживает.</p>
+  <p>Сайт открывается на любом устройстве, а демо можно потрогать даже с телефона. Но само приложение — только для компьютера с Windows 10 или 11.</p>
+</div>
+<div class="lang-en">
+  <p class="kicker">Systems</p>
+  <h1>Supported systems</h1>
+  <p class="art-lead">ArWi runs on Windows 10 and Windows 11.</p>
+  <div class="os-row">
+    <div class="os-card on"><b>Windows 11</b><span>Supported</span></div>
+    <div class="os-card on"><b>Windows 10</b><span>Supported</span></div>
+    <div class="os-card"><b>macOS, Linux, phones</b><span>No</span></div>
+  </div>
+  <p>ArWi is built deep into the Windows desktop: it replaces the taskbar with its own bar, knows about virtual desktops and windows, and recolours system menus. That is why it doesn’t support other systems.</p>
+  <p>The site opens on any device, and you can even play with the demo on a phone. But the app itself is only for a computer with Windows 10 or 11.</p>
+</div>
+</article>
+
+<!-- ===== stack ===== -->
+<article class="art" data-art="stack">
+<div class="lang-ru">
+  <p class="kicker">Как устроен ArWi</p>
+  <h1>Стек технологий</h1>
+  <p class="art-lead">ArWi написан в основном на C++. Это не Electron и не WebView: для приложения разрабатывается собственное ядро.</p>
+
+  <div class="stack-chips">
+    <span class="chip chip-main">C++</span><span class="chip">Direct3D 11</span><span class="chip">Своё ядро</span><span class="chip">Разметка и стили интерфейса</span><span class="chip chip-dim">Python и PowerShell — сборка и тесты</span>
+  </div>
+
+  <h2>Не Electron и не WebView</h2>
+  <p>Многие красивые оболочки рисуют интерфейс встроенным браузером. Разработчику так удобнее, но вашему компьютеру это дорого: внутри каждой такой программы работает почти целый браузер. Первая версия ArWi тоже была веб-версией — и ела слишком много. Поэтому ArWi переписан целиком, и браузера внутри нет.</p>
+
+  <h2>Собственное ядро на C++</h2>
+  <p>Для ArWi разрабатывается своё ядро. Оно использует некоторые open-source решения, но важно подчеркнуть: большая часть работы сделана самим разработчиком. Отрисовка через видеокарту, окна, анимации, темы, все модули, сон и экономия ресурсов написаны для ArWi с нуля. Собственного кода на C++ в проекте уже больше 200 тысяч строк.</p>
+  <p>Вид интерфейса описывается разметкой и стилями, похожими на HTML и CSS. Но разбирает и рисует их ядро ArWi, а не браузер. Благодаря этому темы можно будет писать кодом.</p>
+
+  <h2>Почему это важно</h2>
+  <p>Именно благодаря своему ядру ArWi удаётся добиться такого мизерного потребления ресурсов: 50–80 МБ памяти без живых обоев и около 0,1 % процессора в простое. И именно ядро позволит со временем строить на ArWi что угодно — не теряя этой лёгкости.</p>
+</div>
+<div class="lang-en">
+  <p class="kicker">How ArWi is made</p>
+  <h1>Technology stack</h1>
+  <p class="art-lead">ArWi is written mostly in C++. It is not Electron and not WebView: the app has its own core in development.</p>
+
+  <div class="stack-chips">
+    <span class="chip chip-main">C++</span><span class="chip">Direct3D 11</span><span class="chip">Own core</span><span class="chip">Interface markup and styles</span><span class="chip chip-dim">Python and PowerShell — build and tests</span>
+  </div>
+
+  <h2>Not Electron, not WebView</h2>
+  <p>Many good-looking shells draw their interface with a built-in browser. It is easier for the developer, but costly for your computer: almost a whole browser runs inside each such program. The first version of ArWi was a web version too — and it used far too much. So ArWi was rewritten from scratch, and there is no browser inside.</p>
+
+  <h2>Its own C++ core</h2>
+  <p>ArWi has its own core in development. It uses some open-source solutions, but to be clear: most of the work was done by the developer himself. Drawing through the graphics card, windows, animations, themes, every module, sleeping and saving resources were written for ArWi from scratch. The project already has more than 200,000 lines of its own C++ code.</p>
+  <p>The look of the interface is described with markup and styles similar to HTML and CSS. But they are parsed and drawn by the ArWi core, not by a browser. That is what will let themes be written as code.</p>
+
+  <h2>Why it matters</h2>
+  <p>It is thanks to its own core that ArWi reaches such tiny resource use: 50–80 MB of RAM without live wallpapers and about 0.1 % CPU when idle. And it is the core that will, over time, let anything be built on ArWi — without losing that lightness.</p>
+</div>
+</article>
+
+<!-- ===== who ===== -->
+<article class="art" data-art="who">
+<div class="lang-ru">
+  <p class="kicker">О разработчике</p>
+  <h1>Кто мы?</h1>
+  <p class="art-lead">«Мы» здесь не существует. ArWi делает один человек — соло-разработчик.</p>
+  <div class="solo-card">
+    <div class="fig-num"><b>1</b><span>человек делает<br>весь проект</span></div>
+    <div class="fig-num"><b>~12</b><span>часов в день<br>работы над ArWi</span></div>
+    <div class="fig-num"><b>2020</b><span>с этого года учится<br>и разрабатывает</span></div>
+  </div>
+  <p>Над проектом он работает примерно 12 часов в день. Учится и разрабатывает с 2020 года. Никакой команды, студии или издателя за ArWi нет.</p>
+  <p>Поэтому, когда на сайте написано «разработчик», это всегда один и тот же человек. Вопросы и пожелания можно оставить в комментариях Telegram-канала — разработчик их читает и часто отвечает.</p>
+  <div class="hero-cta"><a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Перейти в t.me/ArWiApp</a></div>
+</div>
+<div class="lang-en">
+  <p class="kicker">About the developer</p>
+  <h1>Who are we?</h1>
+  <p class="art-lead">There is no “we” here. ArWi is made by one person — a solo developer.</p>
+  <div class="solo-card">
+    <div class="fig-num"><b>1</b><span>person makes<br>the whole project</span></div>
+    <div class="fig-num"><b>~12</b><span>hours a day<br>of work on ArWi</span></div>
+    <div class="fig-num"><b>2020</b><span>learning and developing<br>since this year</span></div>
+  </div>
+  <p>He works on the project about 12 hours a day, and has been learning and developing since 2020. There is no team, studio or publisher behind ArWi.</p>
+  <p>So whenever the site says “the developer”, it is always the same person. Questions and wishes can be left in the comments of the Telegram channel — the developer reads them and often replies.</p>
+  <div class="hero-cta"><a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Open t.me/ArWiApp</a></div>
+</div>
+</article>
+
+      <nav class="art-next" id="artNext"></nav>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <a class="brand" href="index.html"><span class="logo-mark"></span><span>ArWi</span></a>
+    <p>Приложение для кастомизации Windows 10 и 11. В разработке, релиз зимой в Steam.</p>
+    <nav class="foot-links"><a href="demo.html">Демо</a><a href="articles.html">Статьи</a></nav>
+    <a href="https://t.me/ArWiApp" target="_blank" rel="noopener">t.me/ArWiApp</a>
+  </div>
+</footer>
+
+<script src="js/i18n.js?v=11"></script>
+<script src="js/site.js?v=11"></script>
+<script src="js/articles.js?v=11"></script>
+</body>
+</html>

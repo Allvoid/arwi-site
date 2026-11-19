@@ -17,18 +17,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@200;400;500;700&family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <script>try{if(localStorage.getItem("arwi-lang")!=="ru")document.documentElement.classList.add("i18n-wait")}catch(e){document.documentElement.classList.add("i18n-wait")}setTimeout(function(){document.documentElement.classList.remove("i18n-wait")},2500)</script>
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#top" aria-label="ArWi — в начало"><span class="logo-mark"></span><span>ArWi</span></a>
+  <a class="brand" href="index.html" aria-label="ArWi — на главную"><span class="logo-mark"></span><span>ArWi</span></a>
   <nav class="nav-links">
-    <a href="#about">Что это</a>
-    <a href="#features">Возможности</a>
-    <a href="#light">Лёгкость</a>
-    <a href="#build">Собери стол</a>
-    <a href="#themes">Темы</a>
+    <a href="index.html" aria-current="page">Главная</a>
+    <a href="demo.html">Демо</a>
+    <a href="articles.html">Статьи</a>
   </nav>
   <div class="lang" role="group" aria-label="Language / Язык"><span class="lang-ink"></span><button type="button" data-lang="en">EN</button><button type="button" data-lang="ru">RU</button></div>
   <a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Telegram</a>
@@ -41,12 +39,12 @@
   <div class="hero-bg" aria-hidden="true"><div class="hero-wall"></div><div class="hero-glow"></div></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <span class="pill reveal"><span class="dot"></span> Скоро в Steam · Windows 10 и 11</span>
-      <h1 class="reveal">Рабочий стол Windows,<br><span class="grad">собранный под вас</span></h1>
-      <p class="lead reveal">ArWi — приложение для кастомизации Windows. Свой бар вместо панели задач, панели виджетов, темы, живые обои и мини-папки. И всё это — почти без нагрузки на компьютер.</p>
+      <span class="pill reveal"><span class="dot"></span> В разработке · релиз зимой в Steam</span>
+      <h1 class="reveal">Привет! Это <span class="grad">ArWi</span></h1>
+      <p class="lead reveal">Приложение для кастомизации Windows 10 и 11. Свой бар вместо панели задач, панели виджетов, темы, живые обои и мини-папки. И всё это — почти без нагрузки на компьютер.</p>
       <div class="hero-cta reveal">
-        <a class="btn btn-accent" href="#build">Собрать свой стол</a>
-        <a class="btn btn-ghost" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Следить за релизом</a>
+        <a class="btn btn-accent" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Следить в Telegram</a>
+        <a class="btn btn-ghost" href="#welcome">С чего начать</a>
       </div>
     </div>
     <div class="hero-art reveal" aria-hidden="true">
@@ -60,7 +58,62 @@
       </div>
     </div>
   </div>
-  <a class="scroll-cue" href="#about" aria-label="Листать вниз"><span></span></a>
+  <a class="scroll-cue" href="#welcome" aria-label="Листать вниз"><span></span></a>
+</section>
+
+<!-- ============ WELCOME: status + the three "windows" the visitor can open ============ -->
+<section class="section welcome" id="welcome">
+  <div class="wrap">
+    <div class="awin awin-status reveal">
+      <div class="awin-head"><span class="logo-mark"></span><span class="awin-title">Добро пожаловать</span><i></i><i></i><i></i></div>
+      <div class="awin-body status">
+        <div class="status-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M3 12h3M18 12h3M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+        <div class="status-text">
+          <h2>ArWi ещё в разработке</h2>
+          <p>Скачать приложение пока нельзя. Релиз планируется зимой в Steam.</p>
+          <p>Чтобы следить за разработкой и первыми узнать о выходе, подпишитесь на Telegram-канал.</p>
+          <div class="hero-cta">
+            <a class="btn btn-accent btn-sm" href="https://t.me/ArWiApp" target="_blank" rel="noopener">Перейти в Telegram</a>
+            <a class="btn btn-ghost btn-sm" href="articles.html#steam">Когда выход в Steam?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="kicker reveal welcome-kicker">Что можно сделать на сайте</p>
+    <div class="awin-grid">
+      <a class="awin awin-card reveal" href="demo.html">
+        <div class="awin-head"><span class="awin-dot" style="--c:#88c0d0"></span><span class="awin-title">Демо</span><i></i><i></i><i></i></div>
+        <div class="awin-body">
+          <div class="awin-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 13h10"/></svg></div>
+          <h3>Попробовать демо</h3>
+          <p>Упрощённая модель ArWi прямо в браузере: мало функций и настроек, но видно, что умеет приложение и как оно выглядит.</p>
+          <p class="awin-note">Ничего не скачивается и не устанавливается</p>
+          <span class="awin-open">Открыть окно</span>
+        </div>
+      </a>
+      <a class="awin awin-card reveal" href="articles.html">
+        <div class="awin-head"><span class="awin-dot" style="--c:#b48ead"></span><span class="awin-title">Статьи</span><i></i><i></i><i></i></div>
+        <div class="awin-body">
+          <div class="awin-ico"><svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5Z"/><path d="M15 4v4h4M8 12h8M8 16h6"/></svg></div>
+          <h3>Почитать статьи</h3>
+          <p>Почему ArWi, а не аналоги. Когда выход в Steam и почему он платный. Сколько ресурсов он ест, что можно настроить, на чём он написан и кто его делает.</p>
+          <p class="awin-note">Ответы на частые вопросы</p>
+          <span class="awin-open">Открыть окно</span>
+        </div>
+      </a>
+      <a class="awin awin-card reveal" href="https://t.me/ArWiApp" target="_blank" rel="noopener">
+        <div class="awin-head"><span class="awin-dot" style="--c:#2aabee"></span><span class="awin-title">Telegram</span><i></i><i></i><i></i></div>
+        <div class="awin-body">
+          <div class="awin-ico"><svg viewBox="0 0 24 24"><path d="m21 4-18 7 6 2 2 6 3-4 5 4Z"/><path d="m9 13 7-5"/></svg></div>
+          <h3>Следить за разработкой</h3>
+          <p>Новости, ролики и скриншоты новых функций выходят сначала в канале. Там же будет объявлен выход в Steam.</p>
+          <p class="awin-note">t.me/ArWiApp</p>
+          <span class="awin-open">Открыть канал</span>
+        </div>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- ============ ABOUT ============ -->
@@ -180,12 +233,13 @@
     <div class="stats">
       <div class="stat reveal"><b data-count="0">0</b><span>WebView и Electron.<br>Интерфейс рисует своё нативное ядро на C++ и Direct3D</span></div>
       <div class="stat reveal"><b>~0,1<small>%</small></b><span>процессора в простое<br>(замер на ПК разработчика)</span></div>
-      <div class="stat reveal"><b data-count="0">0</b><span>постоянных проверок в покое: о новых окнах ArWi узнаёт от самой Windows</span></div>
+      <div class="stat reveal"><b>50–80<small>МБ</small></b><span>оперативной памяти в среднем без живых обоев.<br>С живыми обоями — до 200 МБ</span></div>
     </div>
+    <p class="more-link reveal"><a href="articles.html#resources">Подробнее о потреблении ресурсов</a></p>
 
     <div class="light-grid">
       <div class="light-story reveal">
-        <h3>Мы проверили веб на себе</h3>
+        <h3>Веб проверен на собственном опыте</h3>
         <p>Первая версия ArWi рисовала интерфейс встроенным браузером — так делают многие. Он ел память и процессор и тормозил всё вокруг. Поэтому ArWi переписан целиком на собственном нативном ядре: каждое окно, панель и виджет рисуются напрямую видеокартой.</p>
         <div class="engine">
           <div class="eng-row"><span>Встроенный браузер (WebView)</span><div class="eng-bar web"><i></i></div></div>
@@ -204,85 +258,12 @@
   </div>
 </section>
 
-<!-- ============ BUILDER ============ -->
-<section class="section builder-section" id="build">
-  <div class="wrap wrap-wide">
-    <p class="kicker reveal">Конструктор</p>
-    <h2 class="reveal">Соберите свой рабочий стол</h2>
-    <p class="sub reveal">Упрощённый макет, но с настоящими темами, обоями и анимациями ArWi. Щёлкайте по бару, логотипу и лупе, таскайте окна, наводите на значки.</p>
-    <p class="sub reveal">Здесь вы можете примерно посмотреть, какие рабочие столы можно собрать. Это упрощённый макет, и настройки здесь урезаны до основных. Настоящей кастомизации в ArWi намного больше: почти всё, что вы видите здесь (цвета, скругление, все модули, обои), можно выключить, настроить и поменять.</p>
-
-    <div class="builder">
-      <div class="stage-col">
-        <div class="stage-frame">
-          <div class="stage-wrap" id="stageWrap">
-            <div class="stage" id="stage">
-              <div class="wall"><div class="wall-layer" id="wallA"></div><div class="wall-layer" id="wallB"></div><video class="wall-video" id="wallVideo" muted loop playsinline preload="none"></video></div>
-
-              <div class="bigclock" id="bigClock">
-                <div class="bc-day" id="bcDay">суббота</div>
-                <div class="bc-time"><span id="bcH">12</span><span class="bc-colon">:</span><span id="bcM">00</span></div>
-                <div class="bc-date" id="bcDate">14 ноября 2026</div>
-              </div>
-
-              <div class="minifolders" id="miniFolders"></div>
-              <div class="mf-open" id="mfOpen"></div>
-
-              <div class="wpanel" id="wPanel">
-                <div class="wp-inner" id="wpInner"></div>
-                <button class="wp-arrow" id="wpArrow" aria-label="Свернуть панель"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
-              </div>
-
-              <div class="windows" id="windows"></div>
-
-              <div class="bar" id="bar">
-                <div class="bar-body" id="barBody"></div>
-              </div>
-
-              <div class="popup pop-win" id="popWin"></div>
-              <div class="popup pop-search" id="popSearch"></div>
-              <div class="popup pop-desk" id="popDesk"></div>
-              <div class="popup pop-preview" id="popPreview"></div>
-              <div class="stage-toast" id="stageToast"></div>
-            </div>
-          </div>
-        </div>
-        <p class="stage-hint">На телефоне макет мелкий: приблизьте его пальцами или откройте сайт на компьютере.</p>
-        <div class="stage-actions">
-          <button class="btn btn-ghost btn-sm" id="btnMax">Развернуть окно</button>
-          <button class="btn btn-ghost btn-sm" id="btnRandom">Случайный стол</button>
-          <button class="btn btn-ghost btn-sm" id="btnReset">Сбросить</button>
-          <button class="btn btn-accent btn-sm" id="btnShare">Ссылка на мою сборку</button>
-        </div>
-      </div>
-
-      <aside class="controls" id="controls">
-        <div class="tabs" role="tablist" id="tabs">
-          <button class="tab on" data-tab="theme">Тема</button>
-          <button class="tab" data-tab="bar">Бар</button>
-          <button class="tab" data-tab="widgets">Виджеты</button>
-          <button class="tab" data-tab="wall">Обои</button>
-          <button class="tab" data-tab="more">Ещё</button>
-          <span class="tab-ink" id="tabInk"></span>
-        </div>
-        <div class="tab-pages" id="tabPages">
-          <div class="page on" data-page="theme"></div>
-          <div class="page" data-page="bar"></div>
-          <div class="page" data-page="widgets"></div>
-          <div class="page" data-page="wall"></div>
-          <div class="page" data-page="more"></div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
 <!-- ============ THEMES ============ -->
 <section class="section" id="themes">
   <div class="wrap">
     <p class="kicker reveal">Темы</p>
     <h2 class="reveal">13 встроенных тем — и это верхушка айсберга</h2>
-    <p class="sub reveal">Тема в ArWi — это целый образ: палитра, стиль карточек, обои, логотип и форма бара, оформление папок и даже системных меню. Сменили тему — сменился весь стол. Нажмите на любую, чтобы примерить её в конструкторе.</p>
+    <p class="sub reveal">Тема в ArWi — это целый образ: палитра, стиль карточек, обои, логотип и форма бара, оформление папок и даже системных меню. Сменили тему — сменился весь стол. Нажмите на любую, чтобы примерить её в демо.</p>
     <figure class="real reveal">
       <div class="real-frame"><video id="realVideo" src="assets/real-themes.mp4" poster="assets/real-themes.jpg" muted loop playsinline preload="none"></video><span class="real-badge"><span class="dot"></span> Вживую</span></div>
       <figcaption>Это не макет: все 13 тем подряд на настоящем рабочем столе с ArWi. Бар, обои и мини-папки меняются вместе с темой.</figcaption>
@@ -334,7 +315,7 @@
       <div class="tg-text">
         <p class="kicker">Telegram-канал</p>
         <h2>Следите за ArWi</h2>
-        <p>Новости, ролики и скриншоты новых функций выходят сначала в канале. Там же объявим выход в Steam. Пишите в комментариях, что хотите увидеть в ArWi, — разработчик их читает и часто отвечает.</p>
+        <p>Новости, ролики и скриншоты новых функций выходят сначала в канале. Там же будет объявлен выход в Steam. Пишите в комментариях, что хотите увидеть в ArWi, — разработчик их читает и часто отвечает.</p>
         <div class="hero-cta">
           <a class="btn btn-accent" href="https://t.me/ArWiApp" target="_blank" rel="noopener">
             <svg class="tg-ico" viewBox="0 0 24 24"><path d="M21.5 4.2 2.9 11.4c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.5-1.4Zm-3.4 3.4-8.6 7.8-.3 3.4-1.6-5 9.9-6.3c.5-.3.9 0 .6.1Z"/></svg>
@@ -354,14 +335,15 @@
 
 <footer class="footer">
   <div class="wrap foot">
-    <a class="brand" href="#top"><span class="logo-mark"></span><span>ArWi</span></a>
-    <p>Приложение для кастомизации Windows 10 и 11. Скоро в Steam.</p>
+    <a class="brand" href="index.html"><span class="logo-mark"></span><span>ArWi</span></a>
+    <p>Приложение для кастомизации Windows 10 и 11. В разработке, релиз зимой в Steam.</p>
+    <nav class="foot-links"><a href="demo.html">Демо</a><a href="articles.html">Статьи</a></nav>
     <a href="https://t.me/ArWiApp" target="_blank" rel="noopener">t.me/ArWiApp</a>
   </div>
 </footer>
 
-<script src="js/themes.js?v=10"></script>
-<script src="js/i18n.js?v=10"></script>
-<script src="js/app.js?v=10"></script>
+<script src="js/themes.js?v=11"></script>
+<script src="js/i18n.js?v=11"></script>
+<script src="js/site.js?v=11"></script>
 </body>
 </html>
