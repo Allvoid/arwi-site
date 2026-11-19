@@ -445,6 +445,7 @@ function applyMeta() {
 }
 function setLang(lang) {
   if (lang === LANG) return;
+  document.querySelector('.lang')?.classList.add('anim');
   LANG = lang;
   try { localStorage.setItem('arwi-lang', lang); } catch (e) { /* storage may be off */ }
   busy = true;

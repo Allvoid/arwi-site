@@ -705,7 +705,10 @@ body { transition: opacity .25s ease; }
 .lang button { position: relative; z-index: 1; border: 0; background: none; padding: 5px 10px; border-radius: 8px; font: 700 12px/1 var(--font); letter-spacing: .04em; color: var(--muted); cursor: pointer; transition: color .16s var(--ease-hover); }
 .lang button:hover { color: var(--fg); }
 .lang button.on { color: #11151b; }
-.lang-ink { position: absolute; top: 3px; bottom: 3px; left: 3px; border-radius: 8px; background: var(--accent); transition: transform .34s var(--ease-pop), width .34s var(--ease-pop), background-color .3s; }
+/* the ink slides only after a click on EN / RU; on page load it is placed at once (no slide from the left edge, no
+   twitch when the web font arrives) */
+.lang-ink { position: absolute; top: 3px; bottom: 3px; left: 3px; border-radius: 8px; background: var(--accent); }
+.lang.anim .lang-ink { transition: transform .34s var(--ease-pop), width .34s var(--ease-pop), background-color .3s; }
 @media (max-width: 860px) { .lang { margin-left: auto; } .nav .btn { margin-left: 0; } }
 
 /* =====================================================================
