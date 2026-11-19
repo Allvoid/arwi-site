@@ -951,3 +951,23 @@ html[lang="en"] .lang-ru, html:not([lang="en"]) .lang-en { display: none; }
 }
 .side-tg.awin .awin-body { flex-direction: row; height: auto; }
 @media (max-width: 960px) { .side-tg.awin { display: none; } }
+
+/* hover for every window tile (19.11): the same as the home-page cards, without the lift — accent border and glow,
+   the title bar lights up, the close button turns red, the icon tilts, the number glows */
+.awin-head, .awin-head i, .awin-head i::before, .awin-head i::after, .awin-dot { transition: color .16s var(--ease-hover), background-color .16s var(--ease-hover), transform .4s var(--ease-spring); }
+.awin.pillar, .awin.feat, .awin.stat, .awin.ice-col, .tile { transition: border-color .2s var(--ease-hover), box-shadow .35s var(--ease-hover), background-color .2s var(--ease-hover); }
+.awin.pillar:hover, .awin.feat:hover, .awin.stat:hover, .awin.ice-col:hover, .tile:hover {
+  border-color: rgba(var(--accent-rgb), .45);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .42), 0 0 0 1px rgba(var(--accent-rgb), .15), 0 0 40px rgba(var(--accent-rgb), .08);
+}
+:is(.awin.pillar, .awin.feat, .awin.stat, .awin.ice-col, .tile):hover .awin-head { color: var(--fg); background: rgba(59, 66, 82, .8); }
+:is(.awin.pillar, .awin.feat, .awin.stat, .awin.ice-col, .tile):hover .awin-dot { transform: scale(1.25); }
+:is(.awin.pillar, .awin.feat, .awin.stat, .awin.ice-col, .tile):hover .awin-head i:nth-of-type(3) { background: #bf616a; }
+:is(.awin.pillar, .awin.feat, .awin.stat, .awin.ice-col, .tile):hover .awin-head i:nth-of-type(3)::before,
+:is(.awin.pillar, .awin.feat, .awin.stat, .awin.ice-col, .tile):hover .awin-head i:nth-of-type(3)::after { background: #fff; }
+.pillar-ico, .feat-ico { transition: transform .5s var(--ease-spring); }
+.awin.pillar:hover .pillar-ico, .awin.feat:hover .feat-ico { transform: rotate(-8deg) scale(1.08); }
+.tile-num, .awin.stat b { transition: text-shadow .3s var(--ease-hover); }
+.tile:hover .tile-num, .awin.stat:hover b { text-shadow: 0 0 22px rgba(var(--accent-rgb), .45); }
+.tile-bad:hover { border-color: rgba(191, 97, 106, .6); box-shadow: 0 30px 70px rgba(0, 0, 0, .42), 0 0 0 1px rgba(191, 97, 106, .2), 0 0 40px rgba(191, 97, 106, .1); }
+.tile-bad:hover .tile-num { text-shadow: 0 0 22px rgba(191, 97, 106, .5); }
