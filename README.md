@@ -23,6 +23,9 @@ for GitHub Pages: no build step, no dependencies (fonts come from Google Fonts).
   core first of all), `#resources` (resource use), `#platforms` (Windows 10 and 11), `#stack` (C++, own core, no
   Electron or WebView), `#who` (there is no "we": one solo developer).
 
+Every card on the site is an ArWi window (`.awin`: a title bar with a dot, the title and the window buttons, then the
+body), the same as the three cards on the home page. Only cards that are links lift on hover.
+
 ## Scripts
 
 - `js/themes.js` — theme data, generated from ArWi `native-ui/data/theme-presets.json` (palettes, radii, shadows, bar
@@ -50,7 +53,8 @@ the one that matches `html[lang]`. Only the topic titles in the left column go t
 
 - `assets/wall/*.webp` and `assets/live/*.mp4` are the built-in ArWi wallpapers (`native-ui/assets/wallpapers`).
 - `assets/logo.svg` is the ArWi bar logo, `assets/splash.svg` is the ArWi start-up animation.
-- `assets/real-themes.mp4` is a cropped silent recording of the real desktop cycling through the themes.
+- `assets/real-themes.mp4` is a silent full-screen recording of the real desktop cycling through the themes (ArWi
+  `docs/private/promo-1112/assets/theme_cycle_all.mp4`, scaled to 1600x900). The widget panel was hidden in that take.
 - Motion curves are the ArWi ones: edge reveal `cubic-bezier(.2,1.45,.35,1)` with overshoot, conceal
   `cubic-bezier(.45,0,.25,1)`, popup slide `cubic-bezier(.16,.9,.3,1)`, hover colour 0.16 s.
 

@@ -884,7 +884,7 @@ html[lang="en"] .lang-ru, html:not([lang="en"]) .lang-en { display: none; }
 @media (max-width: 960px) {
   .art-layout { grid-template-columns: 1fr; gap: 16px; }
   .art-side { position: sticky; top: calc(58px + env(safe-area-inset-top, 0px)); z-index: 20; margin-inline: -16px; padding: 8px 16px; background: rgba(22, 26, 33, .88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-  .art-side .kicker, .side-tg { display: none; }
+  .art-side .kicker, .side-tg, .side-tg.awin { display: none; }
   .art-toc { flex-direction: row; overflow-x: auto; scrollbar-width: none; border-radius: 14px; }
   .art-toc::-webkit-scrollbar { display: none; }
   .art-toc a { flex: none; padding: 7px 12px 7px 8px; gap: 8px; }
@@ -895,3 +895,59 @@ html[lang="en"] .lang-ru, html:not([lang="en"]) .lang-en { display: none; }
   .art-body { padding: 26px 18px 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .status-ico svg, .mm-track i, .art.on, .awin-notice { animation: none; } }
+
+/* =====================================================================
+   ONE TILE (19.11): every card on the site is an ArWi window (.awin) like the three on the home page — a title bar
+   with a dot, the title and the window buttons, then the body. Only cards that are links lift on hover.
+   ===================================================================== */
+.awin.pillar, .awin.feat, .awin.stat, .awin.ice-col, .tile {
+  padding: 0; border-radius: 18px; background: rgba(46, 52, 64, .78); border: 1px solid var(--line2);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .3); backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.awin.pillar:hover { transform: none; border-color: rgba(var(--accent-rgb), .4); }
+.awin.feat:hover { background: rgba(46, 52, 64, .86); }
+.awin.pillar .awin-body { padding: 28px 30px 30px; }
+.awin.feat .awin-body { padding: 24px 26px 26px; }
+.awin.stat .awin-body { padding: 24px 26px; }
+.awin.ice-col .awin-body { padding: 24px 28px 28px; }
+.awin.pillar .pillar-ico, .awin.feat .feat-ico { width: 48px; height: 48px; border-radius: 14px; }
+.awin.pillar .pillar-ico svg, .awin.feat .feat-ico svg { width: 24px; height: 24px; }
+.awin.pillar h3 { margin-top: 16px; }
+.awin.feat h3 { margin-top: 16px; }
+.feat-wide.awin { display: block; }
+.feat-wide > .awin-body { display: grid; grid-template-columns: 1.05fr 1fr; gap: 10px 40px; align-items: center; }
+.feat-wide > .awin-body > .feat-demo { grid-row: span 3; }
+.feat-wide h3 { margin-top: 0; }
+@media (max-width: 980px) { .feat-wide > .awin-body { grid-template-columns: 1fr; } .feat-wide > .awin-body > .feat-demo { grid-row: auto; } }
+.awin.stat span { margin-top: 12px; }
+
+.tile .awin-head { height: auto; min-height: 38px; padding-block: 6px; }
+.tile .awin-title { white-space: normal; line-height: 1.3; }
+.tile .awin-head i { width: 24px; height: 24px; }
+.tile .awin-body { padding: 16px 18px 18px; }
+.art .tile .awin-body p { margin: 0; font-size: 14.5px; color: var(--muted); }
+.tile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 22px 0 16px; }
+.tile-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.tile-num { display: block; font: 200 clamp(38px, 5vw, 56px)/1 var(--mono); color: var(--accent); letter-spacing: -.04em; }
+.tile-cap { display: block; margin-top: 8px; color: var(--muted); font-size: 14px; }
+.tile-bad .tile-num { color: #bf616a; }
+.tile-bad .awin-dot { background: #bf616a; }
+.tile-bad { border-color: rgba(191, 97, 106, .35); }
+.os-state { font-size: 14px; color: var(--dim); }
+.tile-os.on .os-state { color: #a3be8c; }
+.tile-os.on .awin-dot { background: #a3be8c; }
+.tile-os:not(.on) .awin-dot { background: var(--dim); }
+
+/* the topic list is a window too, so its top lines up with the article window */
+.toc-win { overflow: hidden; }
+.toc-win .art-toc { border: 0; border-radius: 0; background: none; }
+.side-tg.awin { display: block; padding: 0; border-radius: 18px; background: rgba(46, 52, 64, .78); border: 1px solid var(--line2); }
+.side-tg.awin:hover { transform: translateY(-3px); border-color: rgba(42, 171, 238, .55); }
+.side-tg .awin-body { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
+@media (max-width: 960px) {
+  .tile-grid, .tile-grid-3 { grid-template-columns: 1fr; }
+  .toc-win > .awin-head { display: none; }
+  .toc-win { border-radius: 14px; box-shadow: none; }
+}
+.side-tg.awin .awin-body { flex-direction: row; height: auto; }
+@media (max-width: 960px) { .side-tg.awin { display: none; } }

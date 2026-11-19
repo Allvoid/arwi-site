@@ -85,8 +85,8 @@ const EN = {
   '(замер на ПК разработчика)': '(measured on the developer’s PC)',
   'постоянных проверок в покое: о новых окнах ArWi узнаёт от самой Windows': 'constant checks when idle: Windows itself tells ArWi about new windows',
   'Веб проверен на собственном опыте': 'The web was tried first-hand',
-  'Первая версия ArWi рисовала интерфейс встроенным браузером — так делают многие. Он ел память и процессор и тормозил всё вокруг. Поэтому ArWi переписан целиком на собственном нативном ядре: каждое окно, панель и виджет рисуются напрямую видеокартой.':
-    'The first version of ArWi drew its interface with a built-in browser — many apps do. It ate memory and CPU and slowed everything around it. So ArWi was rewritten from scratch on its own native core: every window, panel and widget is drawn directly by the graphics card.',
+  'Первая версия ArWi рисовала интерфейс встроенным браузером — так делают многие. Она потребляла около 600 МБ оперативной памяти, грузила процессор и тормозила всё вокруг. Поэтому ArWi переписан целиком на собственном нативном ядре: каждое окно, панель и виджет рисуются напрямую видеокартой.':
+    'The first version of ArWi drew its interface with a built-in browser — many apps do. It used about 600 MB of RAM, loaded the CPU and slowed everything around it. So ArWi was rewritten from scratch on its own native core: every window, panel and widget is drawn directly by the graphics card.',
   'Встроенный браузер (WebView)': 'Built-in browser (WebView)',
   'Нативное ядро ArWi': 'ArWi native core',
   'Схема: сколько слоёв стоит между вашим кликом и картинкой': 'Diagram: how many layers sit between your click and the picture',
@@ -338,6 +338,14 @@ const EN = {
   'Спойлер: «мы» нет': 'Spoiler: there is no “we”',
   'Новости — в Telegram': 'News — on Telegram',
   'Дальше': 'Next',
+  'Кастомизация': 'Customisation',
+  'Мини-папки': 'Mini-folders',
+  'Меню': 'Menus',
+  'Ядро': 'Core',
+  'Процессор': 'CPU',
+  'Память': 'Memory',
+  'Свои темы': 'Your own themes',
+  'Живые темы': 'Living themes',
 
   // page meta
   'ArWi — рабочий стол Windows, собранный под вас': 'ArWi — your Windows desktop, built your way',
