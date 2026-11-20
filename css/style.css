@@ -215,6 +215,7 @@ h2 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 800; max-width: 22ch; }
 .stat b { display: block; font: 200 clamp(54px, 7vw, 84px)/1 var(--mono); color: var(--accent); letter-spacing: -.04em; }
 .stat b small { font-size: .5em; }
 .stat b.stat-word { font-family: var(--font); font-weight: 300; letter-spacing: -.03em; }   /* a word, not a number: the mono C looked stretched */
+.stat .stat-word .pp { display: inline-block; margin: 0; font-size: inherit; color: inherit; transform: translateY(-.077em); }   /* the pluses sit on the middle of the C, not lower */
 .stat span { display: block; color: var(--muted); margin-top: 14px; font-size: 15px; }
 .stat:nth-child(2) { --d: .08s; } .stat:nth-child(3) { --d: .16s; }
 .light-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 56px; align-items: start; }
