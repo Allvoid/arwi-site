@@ -25,8 +25,9 @@ for GitHub Pages: no build step, no dependencies (fonts come from Google Fonts a
   Electron or WebView), `#who` (there is no "we": one solo developer).
 
 Every card on the site is an ArWi window (`.awin`: a title bar with a dot, the title and the window buttons, then the
-body), the same as the three cards on the home page. Only cards that are links react to hover (they lift and get an
-accent border); panels that are not links stay still, and nothing tilts.
+body), the same as the three cards on the home page. Every tile reacts to hover (accent border and glow, lit title bar,
+red close button, glowing number, slightly bigger icon); only cards that are links lift. Nothing tilts, and there is no
+light spot following the cursor (removed 20.11).
 
 ## Scripts
 
