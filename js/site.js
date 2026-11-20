@@ -27,13 +27,6 @@ addEventListener('scroll', onScroll, { passive: true }); onScroll();
 const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
 $$('.reveal, .engine').forEach(el => io.observe(el));
 
-// spotlight that follows the cursor on feature cards
-$$('[data-tilt]').forEach(card => card.addEventListener('pointermove', e => {
-  const r = card.getBoundingClientRect();
-  card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-  card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-}));
-
 // dock wave on the feature card demo bar
 (() => {
   const dbar = $('.db-bar');
@@ -75,7 +68,7 @@ const gal = $('#themeGallery');
 if (gal && window.ARWI_THEMES) {
   gal.innerHTML = window.ARWI_THEMES.map(t => `
   <a class="tg-item reveal" href="demo.html#t=${t.id}" data-id="${t.id}" style="--c:${t.accent};--fg2:${t.fg}">
-    <div class="tg-thumb"><img src="assets/wall/${t.id}.webp" alt="" loading="lazy"><div class="tg-minibar" style="--bb:${rgba(t.barBg, t.barOp / 100)};--br:${Math.min(t.barR, 8)}px"><i></i><i></i><i></i><i></i></div></div>
+    <div class="tg-thumb"><img src="assets/wall/thumb/${t.id}.webp" alt="" loading="lazy" decoding="async" width="640" height="360"><div class="tg-minibar" style="--bb:${rgba(t.barBg, t.barOp / 100)};--br:${Math.min(t.barR, 8)}px"><i></i><i></i><i></i><i></i></div></div>
     <div class="tg-meta"><b>${t.name}</b><span>${t.desc}</span><div class="tg-sw">${t.sw.map(c => `<i style="--c:${c}"></i>`).join('')}</div></div>
   </a>`).join('');
   $$('.tg-item', gal).forEach((el, i) => { el.style.setProperty('--d', (i % 4) * .05 + 's'); io.observe(el); });
@@ -87,12 +80,15 @@ if (gal && window.ARWI_THEMES) {
   if (!el || !prev) return;
   const parts = [
     ['c', '/* бар без скруглений, с градиентом */\n'], ['k', '.bar'], ['', ' {\n  '], ['p', 'border-radius'], ['', ': '], ['v', '0'], ['', ';\n  '], ['p', 'background'], ['', ': '], ['v', 'linear-gradient'], ['', '(90deg, '], ['s', '#ff3d7f'], ['', ', '], ['s', '#7a5cff'], ['', ');\n}\n', 1],
-    ['c', '/* круглые значки, которые пляшут */\n'], ['k', '.task'], ['', ' { '], ['p', 'border-radius'], ['', ': '], ['v', '50%'], ['', '; }\n'], ['k', '.task:hover'], ['', ' { '], ['p', 'transform'], ['', ': '], ['v', 'scale(1.25) rotate(-6deg)'], ['', '; }\n', 2],
+    ['c', '/* круглые значки, которые подпрыгивают */\n'], ['k', '.task'], ['', ' { '], ['p', 'border-radius'], ['', ': '], ['v', '50%'], ['', '; }\n'], ['k', '.task:hover'], ['', ' { '], ['p', 'transform'], ['', ': '], ['v', 'translateY(-4px) scale(1.2)'], ['', '; }\n', 2],
     ['c', '/* неоновые часы */\n'], ['k', '.clock'], ['', ' { '], ['p', 'letter-spacing'], ['', ': '], ['v', '.25em'], ['', '; '], ['p', 'text-shadow'], ['', ': '], ['v', '0 0 8px #ff3d7f'], ['', '; }', 3],
   ];
-  let started = false;
+  // typing runs only while the editor is on screen: off screen it waits instead of changing the page every 22 ms
+  let started = false, visible = false, wake = null;
+  const onScreen = () => visible ? Promise.resolve() : new Promise(r => { wake = r; });
   const run = async () => {
     for (;;) {
+      await onScreen();
       el.innerHTML = ''; prev.className = 'ct-preview';
       $('.ed-head span').textContent = window.tr('моя-тема.rcss');
       const caret = document.createElement('span'); caret.className = 'ed-caret';
@@ -101,13 +97,17 @@ if (gal && window.ARWI_THEMES) {
         const text = cls === 'c' ? window.tr(raw.trim()) + '\n' : raw;
         const span = document.createElement('span'); if (cls) span.className = cls;
         el.insertBefore(span, caret);
-        for (const ch of text) { span.textContent += ch; await new Promise(r => setTimeout(r, reduceMotion ? 0 : ch === '\n' ? 90 : 22)); }
+        for (const ch of text) { await onScreen(); span.textContent += ch; await new Promise(r => setTimeout(r, reduceMotion ? 0 : ch === '\n' ? 90 : 22)); }
         if (step) prev.classList.add('s' + step);
       }
       await new Promise(r => setTimeout(r, 4200));
     }
   };
-  new IntersectionObserver(([en]) => { if (en.isIntersecting && !started) { started = true; run(); } }, { threshold: .4 }).observe(el);
+  new IntersectionObserver(([en]) => {
+    visible = en.isIntersecting;
+    if (visible && wake) { wake(); wake = null; }
+    if (visible && !started) { started = true; run(); }
+  }, { threshold: .1 }).observe(el);
 })();
 
 // real footage plays only while it is on screen

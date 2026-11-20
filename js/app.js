@@ -224,14 +224,19 @@ const DAYS = ['воскресенье', 'понедельник', 'вторни�
 const MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 const MONTHS_NOM = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
 const p2 = n => String(n).padStart(2, '0');
+// the clock ticks every second but touches the page only when a value really changes (the minute, the day);
+// the colon blinks from here too, instead of a CSS animation that woke the page up on every frame
+const setText = (el, t) => { if (el && el.textContent !== t) el.textContent = t; };
 function tickClock() {
   const d = new Date();
-  $('#bcH').textContent = p2(d.getHours());
-  $('#bcM').textContent = p2(d.getMinutes());
+  setText($('#bcH'), p2(d.getHours()));
+  setText($('#bcM'), p2(d.getMinutes()));
+  $('.bc-colon')?.classList.toggle('dim', d.getSeconds() % 2 === 1);
   const en = window.ARWI_LANG?.() === 'en';
-  $('#bcDay').textContent = en ? d.toLocaleDateString('en-GB', { weekday: 'long' }).toLowerCase() : DAYS[d.getDay()];
-  $('#bcDate').textContent = en ? `${d.getDate()} ${d.toLocaleDateString('en-GB', { month: 'long' })}  ${d.getFullYear()}` : `${d.getDate()} ${MONTHS[d.getMonth()]}  ${d.getFullYear()}`;
-  $$('.b-clock').forEach(c => { c.innerHTML = `${p2(d.getHours())}:${p2(d.getMinutes())}<small>${p2(d.getDate())}.${p2(d.getMonth() + 1)}.${d.getFullYear()}</small>`; });
+  setText($('#bcDay'), en ? d.toLocaleDateString('en-GB', { weekday: 'long' }).toLowerCase() : DAYS[d.getDay()]);
+  setText($('#bcDate'), en ? `${d.getDate()} ${d.toLocaleDateString('en-GB', { month: 'long' })}  ${d.getFullYear()}` : `${d.getDate()} ${MONTHS[d.getMonth()]}  ${d.getFullYear()}`);
+  const bc = `${p2(d.getHours())}:${p2(d.getMinutes())}<small>${p2(d.getDate())}.${p2(d.getMonth() + 1)}.${d.getFullYear()}</small>`;
+  $$('.b-clock').forEach(c => { if (c.dataset.t !== bc) { c.innerHTML = bc; c.dataset.t = bc; } });
 }
 
 /* ---------------- bar ---------------- */
@@ -914,7 +919,7 @@ function buildControls() {
   const extra = ['#88C0D0', '#E8142C', '#C5F13A', '#FF8C42', '#CBA6F7', '#7AA2F7', '#F0410E', '#4C59B0', '#FFD400', '#2AABEE'];
   page('theme').innerHTML = `
     <div class="group"><div class="g-title">Встроенные темы <small>13 штук</small></div><div class="theme-cards">${THEMES.map(t => `
-      <button type="button" class="tcard" data-id="${t.id}" style="background-image:url(assets/wall/${t.id}.webp)" title="${t.desc}">
+      <button type="button" class="tcard" data-id="${t.id}" style="background-image:url(assets/wall/thumb/${t.id}.webp)" title="${t.desc}">
         <span class="tc-check"></span><span class="tc-dots">${t.pal.map(c => `<i style="--c:${c}"></i>`).join('')}</span><span class="tc-name">${t.name}</span></button>`).join('')}</div></div>
     <div class="group"><div class="g-title">Акцент</div><div class="swatches" id="accSw"></div><p class="g-note" id="customNote">Встроенные темы в ArWi не испортить: любая правка создаёт вашу копию темы — «Настроить под себя».</p></div>
     ${rng('ov.radius', 'Скругление карточек', 0, 36, 1, 'px')}
@@ -952,7 +957,7 @@ function buildControls() {
 
   page('wall').innerHTML = `
     <div class="group"><div class="g-title">Источник</div>${seg('wall.mode', [['theme', 'Обои темы'], ['pick', 'Галерея'], ['gradient', 'Градиент'], ['custom', 'Свой файл']])}</div>
-    <div class="group" id="wallGalleryG"><div class="g-title">Галерея <small>обои встроенных тем</small></div><div class="wall-grid">${WALLS.map(id => `<button type="button" class="wcard" data-wall="${id}" style="background-image:url(assets/wall/${id}.webp)" aria-label="Обои ${id}"></button>`).join('')}</div></div>
+    <div class="group" id="wallGalleryG"><div class="g-title">Галерея <small>обои встроенных тем</small></div><div class="wall-grid">${WALLS.map(id => `<button type="button" class="wcard" data-wall="${id}" style="background-image:url(assets/wall/thumb/${id}.webp)" aria-label="Обои ${id}"></button>`).join('')}</div></div>
     <div class="group">${tgl('wall.live', 'Живые обои', 'видео-версия обоев, где она есть')}<p class="g-note" id="liveNote"></p></div>
     <div class="group"><label class="upload"><input type="file" accept="image/*" id="wallFile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>Загрузить свою картинку</label>
       <p class="g-note">Картинка остаётся только в этой вкладке браузера и никуда не отправляется.</p></div>`;
@@ -1149,5 +1154,6 @@ applyAll();
 focusWin('note');
 requestAnimationFrame(moveInk);
 document.fonts?.ready.then(moveInk);
+document.fonts?.addEventListener?.('loadingdone', moveInk);
 tickClock();
 })();

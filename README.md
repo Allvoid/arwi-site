@@ -1,14 +1,15 @@
 # ArWi site
 
 Site for ArWi (customisation of Windows 10/11): a welcome page, an in-browser demo and articles. Static files only, made
-for GitHub Pages: no build step, no dependencies (fonts come from Google Fonts).
+for GitHub Pages: no build step, no dependencies (fonts come from Google Fonts and load without holding up the page).
 
 ## Pages
 
 - `index.html` — home. Greets the visitor and says plainly that ArWi is still in development: it cannot be downloaded
   yet, the release is planned for winter on Steam, news comes out in the Telegram channel. Below that, three "windows"
   in the ArWi Nord look open the rest of the site: the demo, the articles and the Telegram channel. Then what ArWi is,
-  features, lightness (50–80 MB of RAM without live wallpapers, up to 200 MB with them), real footage of the themes, the
+  features, lightness (50–80 MB of RAM on average with every module on: the bar, all widgets, all mini-folders and a
+  static wallpaper; up to 200 MB with all of that plus live wallpapers), real footage of the themes, the
   theme gallery (each card opens the demo with that theme, `demo.html#t=<id>`), themes as code and the Telegram card.
 - `demo.html` — the demo: a simplified desktop mock-up with real ArWi themes, wallpapers and animations, laid out in a
   fixed 1280x760 space and scaled to the screen. A notice window says that nothing is downloaded or installed and that
@@ -24,7 +25,8 @@ for GitHub Pages: no build step, no dependencies (fonts come from Google Fonts).
   Electron or WebView), `#who` (there is no "we": one solo developer).
 
 Every card on the site is an ArWi window (`.awin`: a title bar with a dot, the title and the window buttons, then the
-body), the same as the three cards on the home page. Only cards that are links lift on hover.
+body), the same as the three cards on the home page. Only cards that are links react to hover (they lift and get an
+accent border); panels that are not links stay still, and nothing tilts.
 
 ## Scripts
 
@@ -32,7 +34,7 @@ body), the same as the three cards on the home page. Only cards that are links l
   colours). The site still lists 13 themes; ArWi has more since (Туман, Хвоя, Кармин), so the articles say "more than
   ten".
 - `js/i18n.js` — English / Russian, see below.
-- `js/site.js` — effects shared by every page: nav, reveal on scroll, card spotlight, the demo bar wave, the theme
+- `js/site.js` — effects shared by every page: nav, reveal on scroll, the demo bar wave, the theme
   gallery, the typed "theme as code" demo, the real footage, the hero clock.
 - `js/app.js` — the builder, `demo.html` only. `#t=<theme id>` puts that theme on the current build.
 - `js/articles.js` — topic switching on `articles.html`.
@@ -52,7 +54,10 @@ the one that matches `html[lang]`. Only the topic titles in the left column go t
 ## Where the data comes from
 
 - `assets/wall/*.webp` and `assets/live/*.mp4` are the built-in ArWi wallpapers (`native-ui/assets/wallpapers`).
-- `assets/logo.svg` is the ArWi bar logo, `assets/splash.svg` is the ArWi start-up animation.
+- `assets/logo.svg` is the ArWi bar logo, `assets/splash.svg` is the ArWi start-up animation, set here to play once
+  and keep the logo on screen (a loop kept the hero redrawing forever).
+- `assets/wall/thumb/*.webp` are 640x360 copies of the wallpapers for the small previews (theme gallery, theme and
+  wallpaper cards in the demo). Make one for every new wallpaper.
 - `assets/real-themes.mp4` is a silent full-screen recording of the real desktop cycling through the themes (ArWi
   `docs/private/promo-1112/assets/theme_cycle_all.mp4`, scaled to 1600x900). The widget panel was hidden in that take.
 - Motion curves are the ArWi ones: edge reveal `cubic-bezier(.2,1.45,.35,1)` with overshoot, conceal
@@ -60,6 +65,18 @@ the one that matches `html[lang]`. Only the topic titles in the left column go t
 
 When ArWi gets a new theme or feature, update `js/themes.js` and the texts in the pages. After changing CSS or JS, bump
 the `?v=` number on the style and script links of all three pages so browsers fetch the new files.
+
+## Keeping it smooth
+
+Measured 20.11 in Chrome with software drawing and a 4x slower CPU (a weak laptop). The rules that came out of it:
+
+- No `backdrop-filter` blur outside the demo desktop. A blur under the fixed header was redrawn on every scroll frame
+  and caused most of the stutter; the ArWi windows sit on a flat background, so their blur showed nothing anyway.
+- Animate `transform` and `opacity` only. `width` (meter bars, widget tracks) and `box-shadow` (the pulsing dot) made
+  the page recalculate or repaint on every frame.
+- No endless animation that keeps the page busy: the hero wallpaper is still, the splash plays once, the typed code
+  pauses off screen, the demo clock blinks its colon from the one-second tick and writes only changed values.
+- Small previews use `assets/wall/thumb`, never the 2560x1440 wallpapers.
 
 ## Local preview
 

@@ -14,9 +14,10 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@200;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@200;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@200;400;500;700&display=swap" rel="stylesheet"></noscript>
 <script>try{if(localStorage.getItem("arwi-lang")!=="ru")document.documentElement.classList.add("i18n-wait")}catch(e){document.documentElement.classList.add("i18n-wait")}setTimeout(function(){document.documentElement.classList.remove("i18n-wait")},2500)</script>
-<link rel="stylesheet" href="css/style.css?v=18">
+<link rel="stylesheet" href="css/style.css?v=19">
 </head>
 <body>
 
@@ -117,8 +118,8 @@
   </div>
 
   <div class="tile-grid">
-    <div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">МБ памяти в среднем без живых обоев</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">50–80</b></div></div>
-    <div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">МБ с живыми обоями — зависит от их настроек и качества</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">до 200</b></div></div>
+    <div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">МБ памяти в среднем, когда включено всё: бар, все виджеты, мини-папки, статичные обои</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">50–80</b></div></div>
+    <div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">МБ — всё то же с живыми обоями; зависит от их настроек и качества</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">до 200</b></div></div>
   </div>
 
   <h2>Почему разработка идёт долго</h2>
@@ -152,8 +153,8 @@
   </div>
 
   <div class="tile-grid">
-    <div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">MB of RAM on average without live wallpapers</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">50–80</b></div></div>
-    <div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">MB with live wallpapers — depends on their settings and quality</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">up to 200</b></div></div>
+    <div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">MB of RAM on average with everything on: the bar, all widgets, mini-folders, a static wallpaper</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">50–80</b></div></div>
+    <div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">MB — the same plus live wallpapers; depends on their settings and quality</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">up to 200</b></div></div>
   </div>
 
   <h2>Why development takes long</h2>
@@ -313,11 +314,11 @@
     <div class="mm-scale"><span>0</span><span>50</span><span>80</span><span>200 МБ</span></div>
   </div>
   <ul class="art-list">
-    <li><b>50–80 МБ</b> оперативной памяти в среднем без живых обоев.</li>
-    <li><b>До 200 МБ</b> с живыми обоями. Сколько именно — зависит от настроек обоев: их разрешения, качества и частоты кадров.</li>
+    <li><b>50–80 МБ</b> оперативной памяти в среднем, когда включены все модули: бар, все виджеты, все мини-папки и статичные обои.</li>
+    <li><b>До 200 МБ</b> — всё то же, но с живыми обоями. Сколько именно — зависит от настроек обоев: их разрешения, качества и частоты кадров.</li>
     <li><b>Около 0,1 %</b> процессора в простое.</li>
   </ul>
-  <p class="art-aside">Цифры сняты на ПК разработчика при обычной работе. На вашем компьютере они могут немного отличаться: это зависит от настроек, числа виджетов и мониторов.</p>
+  <p class="art-aside">Цифры сняты на ПК разработчика при обычной работе, когда включены все модули: бар, все виджеты и все мини-папки. На вашем компьютере они могут немного отличаться: это зависит от настроек и числа мониторов. Если включить не всё, памяти уйдёт ещё меньше.</p>
 
   <h2>За счёт чего</h2>
   <ul class="art-list">
@@ -341,11 +342,11 @@
     <div class="mm-scale"><span>0</span><span>50</span><span>80</span><span>200 MB</span></div>
   </div>
   <ul class="art-list">
-    <li><b>50–80 MB</b> of RAM on average without live wallpapers.</li>
-    <li><b>Up to 200 MB</b> with live wallpapers. How much exactly depends on the wallpaper settings: resolution, quality and frame rate.</li>
+    <li><b>50–80 MB</b> of RAM on average with every module on: the bar, all widgets, all mini-folders and a static wallpaper.</li>
+    <li><b>Up to 200 MB</b> — the same, but with live wallpapers. How much exactly depends on the wallpaper settings: resolution, quality and frame rate.</li>
     <li><b>About 0.1 %</b> CPU when idle.</li>
   </ul>
-  <p class="art-aside">The figures come from the developer’s PC in normal use. On your computer they may differ a little: it depends on the settings and on the number of widgets and monitors.</p>
+  <p class="art-aside">The figures come from the developer’s PC in normal use with every module on: the bar, all widgets and all mini-folders. On your computer they may differ a little: it depends on the settings and the number of monitors. If you don’t turn everything on, it uses even less memory.</p>
 
   <h2>How it gets there</h2>
   <ul class="art-list">
@@ -401,14 +402,14 @@
 
   <h2>Не Electron и не WebView</h2>
   <p>Многие красивые оболочки рисуют интерфейс встроенным браузером. Разработчику так удобнее, но вашему компьютеру это дорого: внутри каждой такой программы работает почти целый браузер. Первая версия ArWi тоже была веб-версией и потребляла <b>около 600 МБ оперативной памяти</b>. Поэтому ArWi переписан целиком, и браузера внутри нет.</p>
-  <div class="tile-grid"><div class="awin tile tile-big tile-bad"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">Первая версия: веб</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">~600</b><span class="tile-cap">МБ оперативной памяти</span></div></div><div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">Сейчас: своё ядро на C++</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">50–80</b><span class="tile-cap">МБ без живых обоев</span></div></div></div>
+  <div class="tile-grid"><div class="awin tile tile-big tile-bad"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">Первая версия: веб</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">~600</b><span class="tile-cap">МБ оперативной памяти</span></div></div><div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">Сейчас: своё ядро на C++</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">50–80</b><span class="tile-cap">МБ со всеми модулями и статичными обоями</span></div></div></div>
 
   <h2>Собственное ядро на C++</h2>
   <p>Для ArWi разрабатывается своё ядро. Оно использует некоторые open-source решения, но важно подчеркнуть: большая часть работы сделана самим разработчиком. Отрисовка через видеокарту, окна, анимации, темы, все модули, сон и экономия ресурсов написаны для ArWi с нуля. Собственного кода на C++ в проекте уже больше 200 тысяч строк.</p>
   <p>Вид интерфейса описывается разметкой и стилями, похожими на HTML и CSS. Но разбирает и рисует их ядро ArWi, а не браузер. Благодаря этому темы можно будет писать кодом.</p>
 
   <h2>Почему это важно</h2>
-  <p>Именно благодаря своему ядру ArWi удаётся добиться такого мизерного потребления ресурсов: 50–80 МБ памяти без живых обоев и около 0,1 % процессора в простое. И именно ядро позволит со временем строить на ArWi что угодно — не теряя этой лёгкости.</p>
+  <p>Именно благодаря своему ядру ArWi удаётся добиться такого мизерного потребления ресурсов: 50–80 МБ памяти со всеми модулями и статичными обоями и около 0,1 % процессора в простое. И именно ядро позволит со временем строить на ArWi что угодно — не теряя этой лёгкости.</p>
 </div>
 <div class="lang-en">
   <p class="kicker">How ArWi is made</p>
@@ -421,14 +422,14 @@
 
   <h2>Not Electron, not WebView</h2>
   <p>Many good-looking shells draw their interface with a built-in browser. It is easier for the developer, but costly for your computer: almost a whole browser runs inside each such program. The first version of ArWi was a web version too, and it used <b>about 600 MB of RAM</b>. So ArWi was rewritten from scratch, and there is no browser inside.</p>
-  <div class="tile-grid"><div class="awin tile tile-big tile-bad"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">First version: web</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">~600</b><span class="tile-cap">MB of RAM</span></div></div><div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">Now: its own C++ core</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">50–80</b><span class="tile-cap">MB without live wallpapers</span></div></div></div>
+  <div class="tile-grid"><div class="awin tile tile-big tile-bad"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">First version: web</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">~600</b><span class="tile-cap">MB of RAM</span></div></div><div class="awin tile tile-big"><div class="awin-head"><span class="awin-dot" style="--c:var(--accent)"></span><span class="awin-title">Now: its own C++ core</span><i></i><i></i><i></i></div><div class="awin-body"><b class="tile-num">50–80</b><span class="tile-cap">MB with every module on and a static wallpaper</span></div></div></div>
 
   <h2>Its own C++ core</h2>
   <p>ArWi has its own core in development. It uses some open-source solutions, but to be clear: most of the work was done by the developer himself. Drawing through the graphics card, windows, animations, themes, every module, sleeping and saving resources were written for ArWi from scratch. The project already has more than 200,000 lines of its own C++ code.</p>
   <p>The look of the interface is described with markup and styles similar to HTML and CSS. But they are parsed and drawn by the ArWi core, not by a browser. That is what will let themes be written as code.</p>
 
   <h2>Why it matters</h2>
-  <p>It is thanks to its own core that ArWi reaches such tiny resource use: 50–80 MB of RAM without live wallpapers and about 0.1 % CPU when idle. And it is the core that will, over time, let anything be built on ArWi — without losing that lightness.</p>
+  <p>It is thanks to its own core that ArWi reaches such tiny resource use: 50–80 MB of RAM with every module on and a static wallpaper, and about 0.1 % CPU when idle. And it is the core that will, over time, let anything be built on ArWi — without losing that lightness.</p>
 </div>
 </article>
 
@@ -477,8 +478,8 @@
   </div>
 </footer>
 
-<script src="js/i18n.js?v=18"></script>
-<script src="js/site.js?v=18"></script>
-<script src="js/articles.js?v=18"></script>
+<script src="js/i18n.js?v=19"></script>
+<script src="js/site.js?v=19"></script>
+<script src="js/articles.js?v=19"></script>
 </body>
 </html>

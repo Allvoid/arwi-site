@@ -79,8 +79,8 @@ const EN = {
   'Красиво — и при этом легко': 'Beautiful — and still lightweight',
   'Приложение, которое работает постоянно, обязано быть незаметным. Поэтому в ArWi нет самой прожорливой вещи, какая только бывает у красивых оболочек, — браузера внутри.':
     'An app that is always running has to stay out of sight. That is why ArWi has none of the hungriest thing a pretty shell can carry — a browser inside.',
-  'WebView и Electron.': 'WebView or Electron.',
-  'Интерфейс рисует своё нативное ядро на C++ и Direct3D': 'The interface is drawn by its own native core in C++ and Direct3D',
+  'Без WebView и Electron.': 'No WebView or Electron.',
+  'Весь интерфейс рисует собственное ядро на C++ через Direct3D': 'The whole interface is drawn by its own C++ core through Direct3D',
   'процессора в простое': 'CPU when idle',
   '(замер на ПК разработчика)': '(measured on the developer’s PC)',
   'постоянных проверок в покое: о новых окнах ArWi узнаёт от самой Windows': 'constant checks when idle: Windows itself tells ArWi about new windows',
@@ -249,7 +249,7 @@ const EN = {
     '— not just change ready-made settings, but rebuild windows, animations and behaviour almost beyond recognition. For those who find sliders too few.',
   'моя-тема.rcss': 'my-theme.rcss',
   '/* бар без скруглений, с градиентом */': '/* square bar with a gradient */',
-  '/* круглые значки, которые пляшут */': '/* round icons that dance */',
+  '/* круглые значки, которые подпрыгивают */': '/* round icons that hop */',
   '/* неоновые часы */': '/* neon clock */',
 
   // telegram, footer
@@ -293,8 +293,8 @@ const EN = {
     'News, videos and screenshots of new features appear in the channel first. The Steam release will be announced there too.',
   'Открыть канал': 'Open the channel',
   'МБ': 'MB',
-  'оперативной памяти в среднем без живых обоев.': 'of RAM on average without live wallpapers.',
-  'С живыми обоями — до 200 МБ': 'With live wallpapers — up to 200 MB',
+  'оперативной памяти в среднем, когда включено всё: бар, все виджеты, все мини-папки и статичные обои.': 'of RAM on average with everything on: the bar, all widgets, all mini-folders and a static wallpaper.',
+  'Всё это вместе с живыми обоями — до 200 МБ': 'All of that plus live wallpapers — up to 200 MB',
   'Подробнее о потреблении ресурсов': 'More about resource use',
   'Приложение для кастомизации Windows 10 и 11. В разработке, релиз зимой в Steam.': 'An app for customising Windows 10 and 11. In development, coming to Steam this winter.',
 
@@ -465,4 +465,5 @@ mo.observe(document.body, { childList: true, subtree: true, characterData: true 
 document.documentElement.classList.remove('i18n-wait');
 addEventListener('load', applyMeta);
 document.fonts?.ready.then(applyMeta);
+document.fonts?.addEventListener?.('loadingdone', applyMeta);
 })();

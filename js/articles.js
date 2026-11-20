@@ -49,6 +49,7 @@ addEventListener('hashchange', () => show(location.hash.slice(1), true));
 document.addEventListener('arwi:lang', () => { const id = current; current = null; show(id); });
 new ResizeObserver(moveInk).observe(toc);
 document.fonts?.ready.then(moveInk);
+document.fonts?.addEventListener?.('loadingdone', moveInk);
 
 show(location.hash.slice(1), false);
 // the first placement of the ink should not slide in from the corner
